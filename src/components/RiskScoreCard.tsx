@@ -11,16 +11,16 @@ const stats = [
 
 const RiskScoreCard = () => {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-lg sm:max-w-2xl">
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 w-full max-w-2xl sm:max-w-3xl">
       {stats.map((stat, index) => (
         <Card
           key={stat.title}
-          className="bg-card/30 backdrop-blur-md border-border/30 p-4 sm:p-5 animate-float"
+          className="bg-card/30 backdrop-blur-md border-border/30 p-5 sm:p-6 animate-float min-w-[140px]"
           style={{ animationDelay: `${index * 0.1}s` }}
         >
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs sm:text-sm text-muted-foreground font-medium">{stat.title}</span>
-            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-sm sm:text-base text-muted-foreground font-medium whitespace-nowrap">{stat.title}</span>
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse ml-2 flex-shrink-0" />
           </div>
           
           <div className="flex items-end gap-1 mb-3">
