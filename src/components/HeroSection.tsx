@@ -7,24 +7,17 @@ const HeroSection = () => {
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
         {/* Main Headline */}
         <h1 
-          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-6 opacity-0 animate-fade-in-up"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.1s' }}
         >
-          SARDES<span className="text-primary">.</span>
+          Sardes ile<br />
+          <span className="text-primary">yatırımcı karakterini</span> keşfet.
         </h1>
-        
-        {/* Sub-headline */}
-        <h2 
-          className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 opacity-0 animate-fade-in-up"
-          style={{ animationDelay: '0.3s' }}
-        >
-          Yatırımcı karakterini keşfet.
-        </h2>
         
         {/* Description */}
         <p 
           className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed opacity-0 animate-fade-in-up"
-          style={{ animationDelay: '0.5s' }}
+          style={{ animationDelay: '0.3s' }}
         >
           Simülasyonu tamamla; her karar için yapay zeka destekli risk analizi al. 
           Zayıf yönlerini gör, finansal yeteneğini Sardes Card ile kanıtla.
@@ -33,7 +26,7 @@ const HeroSection = () => {
         {/* CTA Button */}
         <div 
           className="opacity-0 animate-fade-in-up mb-16"
-          style={{ animationDelay: '0.7s' }}
+          style={{ animationDelay: '0.5s' }}
         >
           <Button 
             size="lg" 
@@ -46,7 +39,7 @@ const HeroSection = () => {
         {/* Visual Element */}
         <div 
           className="opacity-0 animate-fade-in"
-          style={{ animationDelay: '1s' }}
+          style={{ animationDelay: '0.7s' }}
         >
           <RiskScoreCard />
         </div>
