@@ -65,6 +65,7 @@ export default {
       },
       fontFamily: {
         sans: ['Space Grotesk', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
