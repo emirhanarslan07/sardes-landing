@@ -1,0 +1,284 @@
+/* Sardes Card Theme Styles - FIFA-style card themes */
+
+.sardes-card {
+  position: relative;
+  width: 300px;
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.sardes-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* Theme-specific styles using CSS custom properties */
+.sardes-card.classic-gold {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+  border: 2px solid #FFD700;
+}
+
+.sardes-card.modern-blue {
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #60A5FA 100%);
+  border: 2px solid #3B82F6;
+}
+
+.sardes-card.elegant-purple {
+  background: linear-gradient(135deg, #7C3AED 0%, #A855F7 50%, #C084FC 100%);
+  border: 2px solid #A855F7;
+}
+
+.sardes-card.premium-black {
+  background: linear-gradient(135deg, #000000 0%, #374151 50%, #6B7280 100%);
+  border: 2px solid #374151;
+  position: relative;
+}
+
+.sardes-card.premium-black::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+.sardes-card.premium-gradient {
+  background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 50%, #3B82F6 100%);
+  border: 2px solid #EC4899;
+  position: relative;
+}
+
+.sardes-card.premium-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Card content layout */
+.sardes-card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: var(--card-text-color, #ffffff);
+}
+
+.sardes-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.sardes-card-overall-score {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--card-primary-color, #FFD700);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sardes-card-username {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: right;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  max-width: 120px;
+  word-wrap: break-word;
+}
+
+.sardes-card-metrics {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.sardes-card-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sardes-card-metric-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.sardes-card-metric-icon {
+  font-size: 1rem;
+}
+
+.sardes-card-metric-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--card-primary-color, #FFD700);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.sardes-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sardes-card-branding {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.8;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.sardes-card-date {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Premium theme indicators */
+.sardes-card.premium::after {
+  content: '👑';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.2rem;
+  z-index: 3;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sardes-card {
+    width: 280px;
+    height: 390px;
+  }
+  
+  .sardes-card-content {
+    padding: 16px;
+  }
+  
+  .sardes-card-overall-score {
+    font-size: 2.2rem;
+  }
+  
+  .sardes-card-username {
+    font-size: 1rem;
+  }
+  
+  .sardes-card-metric {
+    padding: 6px 10px;
+    gap: 8px;
+  }
+  
+  .sardes-card-metric-label {
+    font-size: 0.8rem;
+  }
+  
+  .sardes-card-metric-value {
+    font-size: 1rem;
+  }
+}
+
+/* Theme selector styles */
+.theme-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.theme-option {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  overflow: hidden;
+}
+
+.theme-option:hover {
+  transform: scale(1.05);
+  border-color: var(--primary);
+}
+
+.theme-option.selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.theme-option.premium {
+  position: relative;
+}
+
+.theme-option.premium::before {
+  content: '👑';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 0.8rem;
+  z-index: 2;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+.theme-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.theme-option.disabled:hover {
+  transform: none;
+  border-color: transparent;
+}
+
+.theme-preview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.theme-name {
+  text-align: center;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
