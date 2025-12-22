@@ -174,7 +174,7 @@ const translations = {
     'footer.privacy': 'Gizlilik Politikası',
     'footer.terms': 'Kullanım Şartları',
     'footer.cookies': 'Çerez Politikası',
-    'footer.follow': 'Bizi takip edin:',
+    'footer.followUs': 'Bizi takip edin',
     'footer.copyright': '© 2025 Sardes Inc. Tüm hakları saklıdır.',
   },
   en: {
@@ -339,7 +339,7 @@ const translations = {
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Service',
     'footer.cookies': 'Cookie Policy',
-    'footer.follow': 'Follow us:',
+    'footer.followUs': 'Follow us',
     'footer.copyright': '© 2025 Sardes Inc. All rights reserved.',
   }
 };
