@@ -123,15 +123,31 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto">
           {/* Main Content - Single Row Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Description - Takes up most space */}
+            {/* Logo + Description + Company Info - Takes up most space */}
             <div className="lg:col-span-6">
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              {/* Logo and Sardes BETA */}
+              <div className="flex items-center gap-0.5 mb-4">
+                <img 
+                  src="/sardes-logo.png" 
+                  alt="Sardes Logo" 
+                  className="w-12 h-12"
+                />
+                <div className="flex items-baseline gap-3">
+                  <span className="font-semibold tracking-tight font-poppins" style={{ fontSize: '1.5rem' }}>
+                    Sardes
+                  </span>
+                  <span className="bg-primary/10 text-primary/70 px-1.5 py-0.5 rounded-full text-xs font-medium transform -translate-y-1">
+                    BETA
+                  </span>
+                </div>
+              </div>
+              
+              {/* Description */}
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {t('footer.description')}
               </p>
-            </div>
-
-            {/* Company Info */}
-            <div className="lg:col-span-2">
+              
+              {/* Company Info */}
               <div className="text-sm text-muted-foreground">
                 <p className="font-medium mb-1">Sardes Inc.</p>
                 <p>Maslak, İstanbul, Türkiye</p>
@@ -139,7 +155,7 @@ const Footer = () => {
             </div>
 
             {/* Contact */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-3">
               <h4 className="font-semibold text-sm mb-2">{t('footer.contact')}</h4>
               <a 
                 href="https://linkedin.com/company/getsardes" 
@@ -155,7 +171,7 @@ const Footer = () => {
             </div>
 
             {/* Legal */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-3">
               <h4 className="font-semibold text-sm mb-2">{t('footer.legal')}</h4>
               <div className="space-y-1">
                 <button 
