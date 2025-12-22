@@ -7,7 +7,6 @@ import { addToWaitlist } from '@/lib/supabase';
 import { trackWaitlistSignup } from '@/lib/analytics';
 import { waitlistEmitter } from '@/hooks/useWaitlistCount';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ChevronLeft } from 'lucide-react';
 
 interface FormData {
   email: string;
@@ -113,10 +112,9 @@ export const WaitlistForm: React.FC<WaitlistFormProps> = ({ onBack }) => {
             <button
               type="button"
               onClick={onBack}
-              className="absolute left-0 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
+              className="absolute left-0 flex items-center text-muted-foreground hover:text-primary transition-colors"
             >
-              <ChevronLeft className="w-3 h-3" />
-              {t('form.back')}
+              <span className="text-lg">&lt;</span>
             </button>
           )}
           <Label htmlFor="email" className="text-sm font-medium w-full text-center">

@@ -157,7 +157,7 @@ const Footer = () => {
             </div>
 
             {/* Center: Contact + LinkedIn */}
-            <div className="lg:col-span-4 flex flex-col items-center justify-center">
+            <div className="lg:col-span-4 flex flex-col lg:items-center lg:justify-center items-start justify-start">
               <h4 className="font-semibold text-sm mb-4">{t('footer.contact')}</h4>
               <a 
                 href="https://linkedin.com/company/getsardes" 
