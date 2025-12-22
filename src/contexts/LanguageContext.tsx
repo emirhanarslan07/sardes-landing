@@ -23,7 +23,7 @@ const translations = {
     
     // Hero Section
     'hero.badge': 'Davranış Odaklı Analiz',
-    'hero.title': 'Yatırımcı davranışınızı <span class="text-primary">Sardes</span> ile keşfedin',
+    'hero.title': '<span class="text-primary">Sardes</span> ile yatırımcı davranışınızı keşfedin',
     'hero.description': 'Sardes, gerçekçi piyasa senaryolarında verdiğiniz kararları gözlemler. Bu kararlar, risk yaklaşımınızı, stres altındaki karar verme biçiminizi ve kayıp sonrası tepkilerinizi anlamanıza yardımcı olan içgörülere dönüştürülür.',
     'hero.cta': 'Erken Erişim İçin Kayıt Ol',
     'hero.feature1': 'Davranış Analizi',
