@@ -2168,3 +2168,26 @@ html {
 .modal-content::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
+/* Fix mobile tap highlight on interactive cards */
+@media (max-width: 768px) {
+  .card-interactive,
+  .magnetic-card,
+  .ripple-effect {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+  
+  /* Allow text selection inside cards */
+  .card-interactive span,
+  .card-interactive p,
+  .card-interactive li,
+  .magnetic-card span,
+  .magnetic-card p,
+  .magnetic-card li {
+    -webkit-user-select: text !important;
+    user-select: text !important;
+  }
+}
