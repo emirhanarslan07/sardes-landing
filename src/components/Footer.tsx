@@ -122,9 +122,9 @@ const Footer = () => {
       <footer className="py-12 px-6 border-t border-border/20 bg-card/20">
         <div className="max-w-7xl mx-auto">
           {/* Main Content - 3 Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left: Logo + Description + Company Info */}
-            <div>
+            <div className="lg:col-span-4">
               {/* Logo and Sardes BETA */}
               <div className="flex items-center gap-0.5 mb-6">
                 <img 
@@ -153,12 +153,11 @@ const Footer = () => {
               <div className="text-sm text-muted-foreground">
                 <p className="font-medium">Sardes Inc.</p>
                 <p>Maslak, İstanbul, Türkiye</p>
-                <p>info@sardes.com</p>
               </div>
             </div>
 
             {/* Center: Contact + LinkedIn */}
-            <div className="flex flex-col items-center justify-center">
+            <div className="lg:col-span-4 flex flex-col items-center justify-center">
               <h4 className="font-semibold text-sm mb-4">{t('footer.contact')}</h4>
               <a 
                 href="https://linkedin.com/company/getsardes" 
@@ -173,8 +172,8 @@ const Footer = () => {
               </a>
             </div>
 
-            {/* Right: Legal */}
-            <div>
+            {/* Right: Legal - More to the right */}
+            <div className="lg:col-span-4 lg:pl-8">
               <h4 className="font-semibold text-sm mb-4">{t('footer.legal')}</h4>
               <div className="space-y-2">
                 <button 
