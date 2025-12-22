@@ -1,14 +1,11 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# Sardes - Yatırımcı Karakterinizi Keşfedin
+# https://getsardes.com
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://getsardes.com/sitemap.xml
+
+# Crawl-delay (saniye)
+Crawl-delay: 1
