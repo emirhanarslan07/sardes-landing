@@ -120,86 +120,40 @@ const Footer = () => {
   return (
     <>
       <footer className="py-12 px-6 border-t border-border/20 bg-card/20">
-        <div className="max-w-7xl mx-auto">
-          {/* Main Content - Single Row Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Logo + Description + Company Info */}
-            <div className="lg:col-span-4">
-              {/* Logo and Sardes BETA */}
-              <div className="flex items-center gap-0.5 mb-4">
-                <img 
-                  src="/sardes-logo.png" 
-                  alt="Sardes Logo" 
-                  className="w-12 h-12"
-                />
-                <div className="flex items-baseline gap-3">
-                  <span className="font-semibold tracking-tight font-poppins" style={{ fontSize: '1.5rem' }}>
-                    Sardes
-                  </span>
-                  <span className="bg-primary/10 text-primary/70 px-1.5 py-0.5 rounded-full text-xs font-medium transform -translate-y-1">
-                    BETA
-                  </span>
-                </div>
-              </div>
-              
-              {/* Description - 3 lines */}
-              <div className="text-muted-foreground text-sm leading-relaxed mb-4">
-                <p>Finansal karar verme süreçlerinizi analiz eden ve geliştiren yapay</p>
-                <p>zeka destekli platform. Gerçek davranış verilerine dayalı analiz ile</p>
-                <p>yatırımcı karakterinizi keşfedin.</p>
-              </div>
-              
-              {/* Company Info */}
-              <div className="text-sm text-muted-foreground">
-                <p className="font-medium mb-1">Sardes Inc.</p>
-                <p>Maslak, İstanbul, Türkiye</p>
-              </div>
+        <div className="max-w-4xl mx-auto">
+          {/* Logo and Sardes BETA */}
+          <div className="flex items-center gap-0.5 mb-6">
+            <img 
+              src="/sardes-logo.png" 
+              alt="Sardes Logo" 
+              className="w-12 h-12"
+            />
+            <div className="flex items-baseline gap-3">
+              <span className="font-semibold tracking-tight font-poppins" style={{ fontSize: '1.5rem' }}>
+                Sardes
+              </span>
+              <span className="bg-primary/10 text-primary/70 px-1.5 py-0.5 rounded-full text-xs font-medium transform -translate-y-1">
+                BETA
+              </span>
             </div>
-
-            {/* Contact - Centered between Sardes BETA and Legal */}
-            <div className="lg:col-span-4 flex flex-col items-center justify-center">
-              <h4 className="font-semibold text-sm mb-3">{t('footer.contact')}</h4>
-              <a 
-                href="https://linkedin.com/company/getsardes" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-            </div>
-
-            {/* Legal */}
-            <div className="lg:col-span-4">
-              <h4 className="font-semibold text-sm mb-2">{t('footer.legal')}</h4>
-              <div className="space-y-1">
-                <button 
-                  onClick={() => openLegalModal('privacy')}
-                  className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  {t('footer.privacy')}
-                </button>
-                <button 
-                  onClick={() => openLegalModal('terms')}
-                  className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  {t('footer.terms')}
-                </button>
-                <button 
-                  onClick={() => openLegalModal('cookies')}
-                  className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Çerez Politikası
-                </button>
-              </div>
-            </div>
+          </div>
+          
+          {/* Description */}
+          <div className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-2xl">
+            <p>Finansal karar verme süreçlerinizi analiz eden ve geliştiren yapay</p>
+            <p>zeka destekli platform. Gerçek davranış verilerine dayalı analiz ile</p>
+            <p>yatırımcı karakterinizi keşfedin.</p>
+          </div>
+          
+          {/* Company Info */}
+          <div className="text-sm text-muted-foreground mb-6">
+            <p className="font-medium">Sardes Inc.</p>
+            <p>Maslak, İstanbul, Türkiye</p>
+            <p>info@sardes.com</p>
           </div>
 
           {/* Bottom Row */}
-          <div className="pt-8 border-t border-border/20 mt-8">
+          <div className="pt-6 border-t border-border/20">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               {/* Copyright */}
               <p className="text-sm text-muted-foreground">
