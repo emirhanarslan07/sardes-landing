@@ -103,7 +103,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-card/30 backdrop-blur-md border border-primary/30 rounded-2xl shadow-lg shadow-black/10">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-card/95 backdrop-blur-md border border-primary/30 rounded-2xl shadow-lg shadow-black/10">
           <div className="px-4 py-3 space-y-2">
             {navItems.map((item) => (
               <button
