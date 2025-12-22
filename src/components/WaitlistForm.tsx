@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { addToWaitlist } from '@/lib/supabase';
-import { trackWaitlistSignup } from '@/lib/analytics';
+// import { trackWaitlistSignup } from '@/lib/analytics'; // TEMPORARILY DISABLED
 import { waitlistEmitter } from '@/hooks/useWaitlistCount';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ChevronLeft } from 'lucide-react';
@@ -62,8 +62,8 @@ export const WaitlistForm: React.FC<WaitlistFormProps> = ({ onBack }) => {
       const result = await submitWaitlist(formData);
       console.log('Waitlist submission successful:', result);
       
-      // Track successful signup
-      trackWaitlistSignup(formData.email);
+      // Track successful signup - TEMPORARILY DISABLED
+      // trackWaitlistSignup(formData.email);
       
       // Update live counter
       waitlistEmitter.emit();
