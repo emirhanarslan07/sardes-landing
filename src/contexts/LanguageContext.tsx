@@ -49,7 +49,7 @@ const translations = {
     'why.risk.problemText': '"Risk toleransınız var mı?" gibi sorular nadiren gerçek davranışı yansıtır.',
     'why.risk.approach': 'Sardes\'in Yaklaşımı',
     'why.risk.approachText': 'Gerçekçi piyasa senaryolarında verilen kararlara dayalı risk alma eğiliminizi analiz eder.',
-    'why.risk.provides': 'Sağladığı',
+    'why.risk.provides': 'Ne Sağlar',
     'why.risk.providesText': 'Riskle ilişkinizin daha net ve gerçekçi bir anlayışı.',
     'why.stress.title': 'Stres Altında Karar Verme',
     'why.stress.problemText': 'Stresin kararları nasıl etkilediğini o anda fark etmek zordur.',
