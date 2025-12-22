@@ -145,13 +145,13 @@ const Footer = () => {
               {/* Description */}
               <div className="text-muted-foreground text-sm leading-relaxed mb-6">
                 {/* Desktop version */}
-                <div className="hidden sm:block">
+                <div className="hidden md:block">
                   <p>Finansal karar verme süreçlerinizi analiz eden ve geliştiren</p>
                   <p>yapay zeka destekli platform. Gerçek davranış verilerine</p>
                   <p>dayalı analiz ile yatırımcı karakterinizi keşfedin.</p>
                 </div>
                 {/* Mobile version - 3 lines aligned, 4th line with remaining words */}
-                <div className="block sm:hidden">
+                <div className="block md:hidden">
                   <p>Finansal karar verme süreçlerinizi analiz eden ve geliştiren</p>
                   <p>yapay zeka destekli platform. Gerçek davranış verilerine</p>
                   <p>dayalı analiz ile yatırımcı karakterinizi</p>
