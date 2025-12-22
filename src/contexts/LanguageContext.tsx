@@ -121,7 +121,7 @@ const translations = {
     'cta.feature3': 'Kişisel gelişime odaklı',
     'cta.button': 'Erken Erişime Katıl',
     'cta.clubs': 'Kulüp veya öğrenci topluluğu musunuz?',
-    'cta.clubsLink': 'Kulüpler için daha fazla bilgi →',
+    'cta.clubsLink': 'Kulüp olarak Sardes\'i keşfedin →',
     
     // Forms
     'form.email': 'E-posta adresiniz',
@@ -142,8 +142,8 @@ const translations = {
     'form.back': 'Geri Dön',
     
     // Club Application Form
-    'club.title': 'Kulüpler İçin Sardes Başvurusu',
-    'club.subtitle': 'Sardes\'i kulüp etkinliklerinde veya toplu kullanım için değerlendirmek isteyen öğrenci toplulukları içindir.',
+    'club.title': 'Kulüpler İçin Sardes Deneyimi',
+    'club.subtitle': 'Sardes\'i kulüp etkinliklerinde, workshop\'larda veya toplu kullanımda değerlendirmek isteyen öğrenci toplulukları için tasarlanmıştır.\n\nAşağıdaki bilgiler, sizinle iletişime geçerek kulübünüze uygun bir Sardes deneyimi planlamak amacıyla alınır.',
     'club.clubName': 'Kulüp Adı',
     'club.university': 'Üniversite',
     'club.memberCount': 'Yaklaşık Üye Sayısı',
@@ -151,8 +151,8 @@ const translations = {
     'club.contactName': 'Yetkili Kişinin Adı Soyadı',
     'club.email': 'İletişim E-posta Adresi',
     'club.linkedin': 'LinkedIn Hesabınız (Daha hızlı iletişim kurabilmemiz için)',
-    'club.note': 'Başvurular yalnızca iletişime geçmek ve uygun bir deneyim planlamak amacıyla değerlendirilir.',
-    'club.submit': 'Başvuru Gönder',
+    'club.note': 'Paylaşılan bilgiler yalnızca iletişim kurmak ve uygun bir Sardes deneyimi oluşturmak için kullanılır.',
+    'club.submit': 'İletişime Geç',
     'club.submitting': 'Gönderiliyor...',
     'club.success': 'Başvuru Alındı',
     'club.successMessage': 'Başvurunuz başarıyla gönderildi. En kısa sürede size dönüş yapacağız.',
@@ -286,7 +286,7 @@ const translations = {
     'cta.feature3': 'Focused on personal development',
     'cta.button': 'Join Early Access',
     'cta.clubs': 'Are you a club or student community?',
-    'cta.clubsLink': 'Learn more for clubs →',
+    'cta.clubsLink': 'Discover Sardes as a club →',
     
     // Forms
     'form.email': 'Your email address',
@@ -307,8 +307,8 @@ const translations = {
     'form.back': 'Go Back',
     
     // Club Application Form
-    'club.title': 'Sardes Application for Clubs',
-    'club.subtitle': 'For student communities who want to evaluate Sardes for club events or group usage.',
+    'club.title': 'Sardes Experience for Clubs',
+    'club.subtitle': 'Designed for student communities who want to evaluate Sardes in club events, workshops, or group usage.\n\nThe information below is collected to contact you and plan a suitable Sardes experience for your club.',
     'club.clubName': 'Club Name',
     'club.university': 'University',
     'club.memberCount': 'Approximate Member Count',
@@ -316,8 +316,8 @@ const translations = {
     'club.contactName': 'Contact Person\'s Full Name',
     'club.email': 'Contact Email Address',
     'club.linkedin': 'Your LinkedIn Profile (For faster communication)',
-    'club.note': 'Applications are evaluated only for communication and planning an appropriate experience.',
-    'club.submit': 'Submit Application',
+    'club.note': 'Shared information is used only to communicate and create an appropriate Sardes experience.',
+    'club.submit': 'Get in Touch',
     'club.submitting': 'Submitting...',
     'club.success': 'Application Received',
     'club.successMessage': 'Your application has been successfully submitted. We will get back to you as soon as possible.',
