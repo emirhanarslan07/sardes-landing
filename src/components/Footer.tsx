@@ -148,12 +148,6 @@ const Footer = () => {
                 <p>yapay zeka destekli platform. Gerçek davranış verilerine</p>
                 <p>dayalı analiz ile yatırımcı karakterinizi keşfedin.</p>
               </div>
-              
-              {/* Company Info */}
-              <div className="text-sm text-muted-foreground">
-                <p className="font-medium">Sardes Inc.</p>
-                <p>Maslak, İstanbul, Türkiye</p>
-              </div>
             </div>
 
             {/* Center: Contact + LinkedIn */}

@@ -2173,7 +2173,10 @@ html {
 @media (max-width: 768px) {
   .card-interactive,
   .magnetic-card,
-  .ripple-effect {
+  .ripple-effect,
+  .card-interactive *,
+  .magnetic-card *,
+  .ripple-effect * {
     -webkit-tap-highlight-color: transparent !important;
     -webkit-touch-callout: none !important;
     -webkit-user-select: none !important;
@@ -2189,5 +2192,10 @@ html {
   .magnetic-card li {
     -webkit-user-select: text !important;
     user-select: text !important;
+  }
+  
+  /* Additional global mobile tap highlight fix */
+  * {
+    -webkit-tap-highlight-color: transparent !important;
   }
 }
