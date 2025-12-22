@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global mobile tap highlight fix - highest priority */
+* {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none;
+}
+
+/* Specific mobile touch device targeting */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    tap-highlight-color: rgba(0,0,0,0) !important;
+  }
+}
+
 
 
 /* SARDES Fintech Design System - Quiet Luxury & High-Tech */
@@ -2171,25 +2185,50 @@ html {
 
 /* Fix mobile tap highlight on interactive cards */
 @media (max-width: 768px) {
+  /* Comprehensive tap highlight removal */
   .card-interactive,
   .magnetic-card,
   .ripple-effect,
   .card-interactive *,
   .magnetic-card *,
-  .ripple-effect * {
+  .ripple-effect *,
+  [class*="card-"],
+  [class*="magnetic-"],
+  [class*="ripple-"] {
     -webkit-tap-highlight-color: transparent !important;
     -webkit-touch-callout: none !important;
     -webkit-user-select: none !important;
     user-select: none !important;
+    outline: none !important;
+  }
+  
+  /* Specific targeting for Card components */
+  .card-interactive:active,
+  .magnetic-card:active,
+  .ripple-effect:active,
+  .card-interactive:focus,
+  .magnetic-card:focus,
+  .ripple-effect:focus {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
   
   /* Allow text selection inside cards */
   .card-interactive span,
   .card-interactive p,
   .card-interactive li,
+  .card-interactive h1,
+  .card-interactive h2,
+  .card-interactive h3,
+  .card-interactive h4,
   .magnetic-card span,
   .magnetic-card p,
-  .magnetic-card li {
+  .magnetic-card li,
+  .magnetic-card h1,
+  .magnetic-card h2,
+  .magnetic-card h3,
+  .magnetic-card h4 {
     -webkit-user-select: text !important;
     user-select: text !important;
   }
@@ -2197,5 +2236,15 @@ html {
   /* Additional global mobile tap highlight fix */
   * {
     -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  /* Specific fix for touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .card-interactive,
+    .magnetic-card,
+    .ripple-effect {
+      -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+      tap-highlight-color: rgba(0,0,0,0) !important;
+    }
   }
 }
