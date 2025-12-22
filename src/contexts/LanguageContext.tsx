@@ -168,7 +168,7 @@ const translations = {
     'btn.learnMore': 'Daha Fazla Bilgi',
     
     // Footer
-    'footer.description': 'Finansal karar verme süreçlerinizi analiz eden ve geliştiren yapay zeka destekli platform. Gerçek davranış verilerine dayalı analiz ile yatırımcı karakterinizi keşfedin.',
+    'footer.description': 'Finansal karar verme süreçlerinizi analiz eden ve geliştiren yapay zeka destekli platform.\nGerçek davranış verilerine dayalı analiz ile yatırımcı karakterinizi keşfedin.',
     'footer.contact': 'İletişim',
     'footer.legal': 'Yasal',
     'footer.privacy': 'Gizlilik Politikası',
@@ -333,7 +333,7 @@ const translations = {
     'btn.learnMore': 'Learn More',
     
     // Footer
-    'footer.description': 'An AI-powered platform that analyzes and improves your financial decision-making processes. Discover your investor character through analysis based on real behavioral data.',
+    'footer.description': 'An AI-powered platform that analyzes and improves your financial decision-making processes.\nDiscover your investor character through analysis based on real behavioral data.',
     'footer.contact': 'Contact',
     'footer.legal': 'Legal',
     'footer.privacy': 'Privacy Policy',
