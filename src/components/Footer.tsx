@@ -150,7 +150,7 @@ const Footer = () => {
                   <p>yapay zeka destekli platform. Gerçek davranış verilerine</p>
                   <p>dayalı analiz ile yatırımcı karakterinizi keşfedin.</p>
                 </div>
-                {/* Mobile version - 4 lines with precise breaks */}
+                {/* Mobile version - 4 lines with precise breaks for mobile layout */}
                 <div className="block md:hidden max-w-[260px]">
                   <div>Finansal karar verme süreçlerinizi analiz</div>
                   <div>eden ve geliştiren yapay zeka destekli</div>
