@@ -114,7 +114,7 @@ export const WaitlistForm: React.FC<WaitlistFormProps> = ({ onBack }) => {
               onClick={onBack}
               className="absolute left-0 flex items-center text-muted-foreground hover:text-primary transition-colors"
             >
-              <span className="text-lg font-bold" style={{ transform: 'rotate(15deg)' }}>‹</span>
+              <span className="text-xl font-bold">&lt;</span>
             </button>
           )}
           <Label htmlFor="email" className="text-sm font-medium w-full text-center">
