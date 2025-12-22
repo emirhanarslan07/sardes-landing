@@ -124,7 +124,7 @@ const Footer = () => {
           {/* Main Content - Single Row Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Logo + Description + Company Info - Takes up most space */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-4">
               {/* Logo and Sardes BETA */}
               <div className="flex items-center gap-0.5 mb-4">
                 <img 
@@ -144,9 +144,9 @@ const Footer = () => {
               
               {/* Description - 3 lines */}
               <div className="text-muted-foreground text-sm leading-relaxed mb-4">
-                <p>Finansal karar verme süreçlerinizi analiz eden</p>
-                <p>ve geliştiren yapay zeka destekli platform.</p>
-                <p>Gerçek davranış verilerine dayalı analiz ile yatırımcı karakterinizi keşfedin.</p>
+                <p>Finansal karar verme süreçlerinizi analiz eden ve geliştiren yapay</p>
+                <p>zeka destekli platform. Gerçek davranış verilerine dayalı analiz ile</p>
+                <p>yatırımcı karakterinizi keşfedin.</p>
               </div>
               
               {/* Company Info */}
@@ -157,7 +157,7 @@ const Footer = () => {
             </div>
 
             {/* Contact */}
-            <div className="lg:col-span-4 lg:pl-8">
+            <div className="lg:col-span-5 lg:pl-12">
               <h4 className="font-semibold text-sm mb-2">{t('footer.contact')}</h4>
               <a 
                 href="https://linkedin.com/company/getsardes" 
