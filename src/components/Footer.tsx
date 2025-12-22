@@ -144,9 +144,9 @@ const Footer = () => {
               
               {/* Description */}
               <div className="text-muted-foreground text-sm leading-relaxed mb-6">
-                <p>Finansal karar verme süreçlerinizi analiz eden ve geliştiren yapay</p>
-                <p>zeka destekli platform. Gerçek davranış verilerine dayalı analiz ile</p>
-                <p>yatırımcı karakterinizi keşfedin.</p>
+                <p>Finansal karar verme süreçlerinizi analiz eden ve geliştiren</p>
+                <p>yapay zeka destekli platform. Gerçek davranış verilerine</p>
+                <p>dayalı analiz ile yatırımcı karakterinizi keşfedin.</p>
               </div>
               
               {/* Company Info */}
