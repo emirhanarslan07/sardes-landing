@@ -1,6 +1,6 @@
-# Sardes - Finansal Karar Alma Simülatörü
+# Sardes - Yatırımcı Karakterinizi Keşfedin
 
-Gerçek piyasa senaryolarında yatırım kararlarını test edin ve risk yaklaşımınızı keşfedin.
+Gerçek piyasa senaryolarında karar vererek yatırımcı karakterinizi keşfedin ve risk yaklaşımınızı analiz edin.
 
 ## 🚀 Özellikler
 
