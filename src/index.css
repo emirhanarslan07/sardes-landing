@@ -776,7 +776,7 @@ html {
     color: hsl(var(--hover-pink));
   }
 }
-/* Lovable-style Badge Animations */
+/* Sardes Badge Animations */
 @layer utilities {
   .badge-animated {
     position: relative;
