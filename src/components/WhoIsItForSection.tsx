@@ -34,7 +34,7 @@ const WhoIsItForSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Bireysel Kullanıcılar */}
-          <Card className="bg-card/30 backdrop-blur-md border-border/30 p-8 card-interactive magnetic-card ripple-effect">
+          <Card className="bg-card/30 backdrop-blur-md border-border/30 p-8">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                 <User className="w-6 h-6 text-primary" />
@@ -79,7 +79,7 @@ const WhoIsItForSection = () => {
           </Card>
 
           {/* Kulüpler & Öğrenci Toplulukları */}
-          <Card className="bg-card/30 backdrop-blur-md border-border/30 p-8 card-interactive magnetic-card ripple-effect">
+          <Card className="bg-card/30 backdrop-blur-md border-border/30 p-8">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Users className="w-6 h-6 text-primary" />
