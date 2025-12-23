@@ -48,7 +48,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-4 left-4 right-4 z-50 nav-interactive">
       <div className="max-w-7xl mx-auto bg-card/30 backdrop-blur-md border border-primary/30 rounded-2xl px-4 py-2 flex items-center justify-between shadow-lg shadow-black/10">
-        {/* Logo */}
+        {/* Logo - Sol */}
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="flex items-center gap-0.5 hover:opacity-80 transition-opacity"
@@ -68,8 +68,8 @@ const Navbar = () => {
           </div>
         </button>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* Navigation Links - Orta */}
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <button
               key={item.href}
@@ -79,11 +79,12 @@ const Navbar = () => {
               {item.label}
             </button>
           ))}
-          
-          {/* Language Toggle */}
+        </div>
+
+        {/* Language Toggle + CTA - Sağ */}
+        <div className="hidden md:flex items-center gap-4">
           <LanguageToggle />
           
-          {/* CTA Button */}
           <Button 
             size="sm" 
             onClick={() => handleNavClick("#erken-erisim")}
