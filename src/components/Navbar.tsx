@@ -9,11 +9,11 @@ const Navbar = () => {
   const { t } = useLanguage();
 
   const navItems = [
-    { label: t('nav.features'), href: "#ozellikler" },
-    { label: t('nav.faq'), href: "#sss" },
-    { label: t('nav.about'), href: "#hakkimizda" },
+    { label: t('nav.features'), href: "/features" },
+    { label: t('nav.faq'), href: "/faq" },
+    { label: t('nav.about'), href: "/about" },
     { label: t('nav.clubs'), href: "/clubs" },
-    { label: t('nav.contact'), href: "#iletisim" },
+    { label: t('nav.contact'), href: "/contact" },
   ];
 
   const handleNavClick = (href: string) => {
