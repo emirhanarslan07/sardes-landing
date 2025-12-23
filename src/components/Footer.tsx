@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -179,18 +180,24 @@ const Footer = () => {
             <div className="lg:col-span-4 lg:pl-12">
               <h4 className="font-semibold text-sm mb-4">{t('footer.legal')}</h4>
               <div className="space-y-2">
-                <button 
-                  onClick={() => openLegalModal('privacy')}
+                <Link 
+                  to="/privacy-policy"
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"
                 >
                   {t('footer.privacy')}
-                </button>
-                <button 
-                  onClick={() => openLegalModal('terms')}
+                </Link>
+                <Link 
+                  to="/terms"
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"
                 >
                   {t('footer.terms')}
-                </button>
+                </Link>
+                <Link 
+                  to="/faq"
+                  className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
+                  SSS
+                </Link>
                 <button 
                   onClick={() => openLegalModal('cookies')}
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"

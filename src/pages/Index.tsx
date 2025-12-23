@@ -10,12 +10,25 @@ import FAQSection from "@/components/FAQSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Helmet } from "react-helmet-async";
 
 const Index = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-background text-foreground animated-bg">
+    <>
+      <Helmet>
+        <title>Sardes - Yatırımcı Davranışınızı Keşfedin</title>
+        <meta name="description" content="Sardes ile gerçekçi piyasa senaryolarında verdiğiniz kararları gözlemleyin. Risk yaklaşımınızı, stres altındaki karar verme biçiminizi ve kayıp sonrası tepkilerinizi anlayın." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://getsardes.com/" />
+        <meta property="og:title" content="Sardes - Yatırımcı Davranışınızı Keşfedin" />
+        <meta property="og:description" content="Gerçekçi piyasa senaryolarında karar verme davranışınızı analiz eden yapay zeka destekli platform." />
+        <meta property="og:url" content="https://getsardes.com/" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      
+      <div className="min-h-screen bg-background text-foreground animated-bg">
       {/* Interactive Particles */}
       <div className="interactive-particles">
         <div className="particle-dot"></div>
@@ -78,6 +91,7 @@ const Index = () => {
         <ScrollToTop />
       </div>
     </div>
+    </>
   );
 };
 
