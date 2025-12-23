@@ -64,6 +64,23 @@ export const trackEvent = (action: string, category: string, label?: string, val
   });
 };
 
+// Track CTA clicks
+export const trackCTAClick = (buttonName: string) => {
+  if (!GA_TRACKING_ID || typeof window === 'undefined' || !window.gtag) return;
+  
+  try {
+    window.gtag('event', 'cta_click', {
+      button_name: buttonName,
+      event_category: 'engagement',
+      event_label: buttonName
+    });
+    
+    console.log('CTA click tracked:', buttonName);
+  } catch (error) {
+    console.error('CTA tracking error:', error);
+  }
+};
+
 // Track waitlist signup
 export const trackWaitlistSignup = (_email: string) => {
   // Extra safety checks

@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { addToWaitlist } from '@/lib/supabase';
-import { trackWaitlistSignup } from '@/lib/analytics';
+import { trackWaitlistSignup, trackCTAClick } from '@/lib/analytics';
 import { waitlistEmitter } from '@/hooks/useWaitlistCount';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -53,6 +53,9 @@ export const WaitlistForm: React.FC<WaitlistFormProps> = ({ onBack }) => {
       setError(t('form.emailRequired'));
       return;
     }
+
+    // Track form submission attempt
+    trackCTAClick('Kayıt Ol');
 
     setIsSubmitting(true);
     setError(null);

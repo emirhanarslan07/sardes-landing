@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
   const content = {
     tr: {
       title: "Gizlilik Politikası",
-      lastUpdated: "Son güncelleme: 23 Aralık 2024",
+      lastUpdated: "Son güncelleme: 23 Aralık 2025",
       sections: [
         {
           title: "1. Genel Bilgiler",
@@ -37,17 +37,17 @@ const PrivacyPolicy = () => {
         },
         {
           title: "7. Haklarınız",
-          content: "İstediğiniz zaman:\n• E-posta listesinden çıkabilirsiniz\n• Kişisel verilerinizin silinmesini talep edebilirsiniz\n• Hangi verilerimizin saklandığını öğrenebilirsiniz"
+          content: "İstediğiniz zaman:\n• E-posta iletişimlerinden çıkabilirsiniz.\n• Bizimle paylaştığınız iletişim bilgilerinin silinmesini talep edebilirsiniz.\n• Hangi temel bilgilerin (ör. e-posta adresi) bizimle paylaşıldığını öğrenebilirsiniz."
         },
         {
           title: "8. İletişim",
-          content: "Gizlilik politikamız hakkında sorularınız varsa, LinkedIn hesabımız üzerinden bizimle iletişime geçebilirsiniz."
+          content: "Gizlilik politikamız hakkında sorularınız varsa, bizimle iletişime geçebilirsiniz."
         }
       ]
     },
     en: {
       title: "Privacy Policy",
-      lastUpdated: "Last updated: December 23, 2024",
+      lastUpdated: "Last updated: December 23, 2025",
       sections: [
         {
           title: "1. General Information",
@@ -75,11 +75,11 @@ const PrivacyPolicy = () => {
         },
         {
           title: "7. Your Rights",
-          content: "You can at any time:\n• Unsubscribe from the email list\n• Request deletion of your personal data\n• Learn what data we store"
+          content: "You can at any time:\n• Unsubscribe from email communications.\n• Request deletion of your contact information shared with us.\n• Learn what basic information (e.g. email address) has been shared with us."
         },
         {
           title: "8. Contact",
-          content: "If you have questions about our privacy policy, you can contact us through our LinkedIn account."
+          content: "If you have questions about our privacy policy, you can contact us."
         }
       ]
     }

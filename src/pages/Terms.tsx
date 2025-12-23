@@ -9,11 +9,11 @@ const Terms = () => {
   const content = {
     tr: {
       title: "Kullanım Şartları",
-      lastUpdated: "Son güncelleme: 23 Aralık 2024",
+      lastUpdated: "Son güncelleme: 23 Aralık 2025",
       sections: [
         {
           title: "1. Hizmet Tanımı",
-          content: "Sardes, finansal karar alma davranışlarını anlamaya yönelik simülasyon temelli bir deneyim sunar. Bu platform, gerçek piyasa koşullarını yansıtan senaryolarda karar verme süreçlerinizi analiz eder."
+          content: "Sardes, finansal karar alma davranışlarını anlamaya yönelik senaryo bazlı bir deneyim sunar. Bu platform, gerçek piyasa koşullarını yansıtan senaryolarda karar verme süreçlerinizi analiz eder."
         },
         {
           title: "2. Önemli Uyarılar",
@@ -51,11 +51,11 @@ const Terms = () => {
     },
     en: {
       title: "Terms of Service",
-      lastUpdated: "Last updated: December 23, 2024",
+      lastUpdated: "Last updated: December 23, 2025",
       sections: [
         {
           title: "1. Service Description",
-          content: "Sardes offers a simulation-based experience aimed at understanding financial decision-making behaviors. This platform analyzes your decision-making processes in scenarios that reflect real market conditions."
+          content: "Sardes offers a scenario-based experience aimed at understanding financial decision-making behaviors. This platform analyzes your decision-making processes in scenarios that reflect real market conditions."
         },
         {
           title: "2. Important Warnings",

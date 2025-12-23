@@ -40,13 +40,30 @@ const FAQ = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // Schema.org FAQ structured data
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <>
       <Helmet>
         <title>Sık Sorulan Sorular - Sardes</title>
-        <meta name="description" content="Sardes hakkında sık sorulan sorular ve cevapları. Yatırımcı davranış analizi, finansal simülasyon ve platform kullanımı hakkında detaylı bilgiler." />
+        <meta name="description" content="Sardes hakkında sık sorulan sorular ve cevapları. Yatırımcı davranış analizi, finansal senaryo deneyimi ve platform kullanımı hakkında detaylı bilgiler." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://getsardes.com/faq" />
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
       </Helmet>
       
       <div className="min-h-screen bg-background">
@@ -66,25 +83,27 @@ const FAQ = () => {
               </div>
 
               {/* FAQ Items */}
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {faqs.map((faq, index) => (
                   <div
                     key={index}
                     className="bg-card/30 backdrop-blur-md border border-border/30 rounded-lg overflow-hidden"
                   >
-                    <button
-                      onClick={() => toggleFAQ(index)}
-                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted/10 transition-colors"
-                    >
-                      <span className="font-medium text-foreground pr-4">
-                        {faq.question}
-                      </span>
-                      <ChevronDown
-                        className={`w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0 ${
-                          openIndex === index ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </button>
+                    <h2 className="text-xl font-semibold">
+                      <button
+                        onClick={() => toggleFAQ(index)}
+                        className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted/10 transition-colors"
+                      >
+                        <span className="font-medium text-foreground pr-4">
+                          {faq.question}
+                        </span>
+                        <ChevronDown
+                          className={`w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0 ${
+                            openIndex === index ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                    </h2>
                     
                     <div
                       className={`overflow-hidden transition-all duration-200 ease-in-out ${
