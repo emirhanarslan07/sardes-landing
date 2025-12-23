@@ -1,8 +1,18 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { trackCTAClick } from "@/lib/analytics";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+
+  const scrollToEarlyAccess = () => {
+    trackCTAClick('Erken Erişime Katıl');
+    const element = document.getElementById('erken-erisim');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative overflow-hidden" style={{ paddingTop: '120px' }}>
@@ -72,6 +82,20 @@ const HeroSection = () => {
             </svg>
             <span>{t('hero.feature3')}</span>
           </div>
+        </div>
+        
+        {/* CTA Button */}
+        <div 
+          className="mt-12 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: '0.7s' }}
+        >
+          <Button 
+            onClick={scrollToEarlyAccess}
+            size="lg"
+            className="text-base font-medium px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl transition-all duration-300 hover:scale-105"
+          >
+            Erken Erişime Katıl
+          </Button>
         </div>
         
 

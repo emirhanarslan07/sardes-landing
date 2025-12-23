@@ -2,6 +2,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const Terms = () => {
   const { language } = useLanguage();
@@ -45,7 +47,7 @@ const Terms = () => {
         },
         {
           title: "9. İletişim",
-          content: "Kullanım şartları hakkında sorularınız varsa, LinkedIn hesabımız üzerinden bizimle iletişime geçebilirsiniz."
+          content: "Kullanım şartları hakkında sorularınız varsa, bizimle iletişime geçebilirsiniz."
         }
       ]
     },
@@ -87,7 +89,7 @@ const Terms = () => {
         },
         {
           title: "9. Contact",
-          content: "If you have questions about the terms of use, you can contact us through our LinkedIn account."
+          content: "If you have questions about the terms of use, you can contact us."
         }
       ]
     }
@@ -110,6 +112,17 @@ const Terms = () => {
         <main className="pt-20">
           <section className="py-20 px-6">
             <div className="max-w-4xl mx-auto">
+              {/* Back to Home Button */}
+              <div className="mb-8">
+                <Link 
+                  to="/"
+                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Ana Sayfaya Dön
+                </Link>
+              </div>
+
               {/* Page Header */}
               <div className="text-center mb-12">
                 <h1 className="text-4xl sm:text-5xl font-bold mb-4">

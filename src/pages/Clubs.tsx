@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import ClubsInfoSection from "@/components/ClubsInfoSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const Clubs = () => {
   const { t } = useLanguage();
@@ -20,6 +22,19 @@ const Clubs = () => {
         <Navbar />
         
         <main className="pt-20">
+          {/* Back to Home Button */}
+          <div className="px-6 mb-8">
+            <div className="max-w-6xl mx-auto">
+              <Link 
+                to="/"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Ana Sayfaya Dön
+              </Link>
+            </div>
+          </div>
+          
           <ClubsInfoSection />
         </main>
 
