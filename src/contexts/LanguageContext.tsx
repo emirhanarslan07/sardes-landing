@@ -15,7 +15,7 @@ const translations = {
   tr: {
     // Navbar
     'nav.features': 'Özellikler',
-    'nav.faq': 'Sık Sorulan Sorular',
+    'nav.faq': 'SSS',
     'nav.about': 'Hakkımızda',
     'nav.clubs': 'Kulüpler',
     'nav.contact': 'İletişim',

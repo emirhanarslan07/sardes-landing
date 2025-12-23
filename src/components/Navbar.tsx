@@ -47,65 +47,71 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-4 left-4 right-4 z-50 nav-interactive">
-      <div className="max-w-7xl mx-auto bg-card/30 backdrop-blur-md border border-primary/30 rounded-2xl px-4 py-2 flex items-center justify-between shadow-lg shadow-black/10">
-        {/* Logo - Sol */}
-        <button 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center gap-0.5 hover:opacity-80 transition-opacity"
-        >
-          <img 
-            src="/sardes-logo.png" 
-            alt="Sardes Logo" 
-            className="w-12 h-12"
-          />
-          <div className="flex items-baseline gap-3">
-            <span className="font-semibold tracking-tight font-poppins" style={{ fontSize: '1.5rem' }}>
-              Sardes
-            </span>
-            <span className="bg-primary/10 text-primary/70 px-1.5 py-0.5 rounded-full text-xs font-medium transform -translate-y-1">
-              BETA
-            </span>
-          </div>
-        </button>
-
-        {/* Navigation Links - Orta */}
-        <div className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => handleNavClick(item.href)}
-              className="text-sm font-medium text-muted-foreground nav-link-enhanced"
+      <div className="max-w-7xl mx-auto bg-card/30 backdrop-blur-md border border-primary/30 rounded-2xl px-4 py-2 shadow-lg shadow-black/10">
+        <div className="grid grid-cols-3 items-center">
+          {/* Logo - Sol */}
+          <div className="flex justify-start">
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-0.5 hover:opacity-80 transition-opacity"
             >
-              {item.label}
+              <img 
+                src="/sardes-logo.png" 
+                alt="Sardes Logo" 
+                className="w-12 h-12"
+              />
+              <div className="flex items-baseline gap-3">
+                <span className="font-semibold tracking-tight font-poppins" style={{ fontSize: '1.5rem' }}>
+                  Sardes
+                </span>
+                <span className="bg-primary/10 text-primary/70 px-1.5 py-0.5 rounded-full text-xs font-medium transform -translate-y-1">
+                  BETA
+                </span>
+              </div>
             </button>
-          ))}
-        </div>
+          </div>
 
-        {/* Language Toggle + CTA - Sağ */}
-        <div className="hidden md:flex items-center gap-4">
-          <LanguageToggle />
-          
-          <Button 
-            size="sm" 
-            onClick={() => handleNavClick("#erken-erisim")}
-            className="ml-1 text-sm font-medium btn-ripple"
-          >
-            {t('nav.signup')}
-          </Button>
-        </div>
+          {/* Navigation Links - Orta (Tam Ortalı) */}
+          <div className="hidden md:flex items-center justify-center gap-6">
+            {navItems.map((item) => (
+              <button
+                key={item.href}
+                onClick={() => handleNavClick(item.href)}
+                className="text-sm font-medium text-muted-foreground nav-link-enhanced"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-1 -mr-1"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? (
-            <X className="w-5 h-5" />
-          ) : (
-            <Menu className="w-5 h-5" />
-          )}
-        </button>
+          {/* Language Toggle + CTA - Sağ */}
+          <div className="hidden md:flex items-center justify-end gap-4">
+            <LanguageToggle />
+            
+            <Button 
+              size="sm" 
+              onClick={() => handleNavClick("#erken-erisim")}
+              className="ml-1 text-sm font-medium btn-ripple"
+            >
+              {t('nav.signup')}
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button - Sağ (Mobile) */}
+          <div className="md:hidden flex justify-end">
+            <button
+              className="p-1 -mr-1"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Mobile Menu */}
