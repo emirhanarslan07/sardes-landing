@@ -9,39 +9,42 @@ const Navbar = () => {
   const { t } = useLanguage();
 
   const navItems = [
-    { label: t('nav.features'), href: "/features" },
-    { label: t('nav.faq'), href: "/faq" },
-    { label: t('nav.about'), href: "/about" },
-    { label: t('nav.clubs'), href: "/clubs" },
-    { label: t('nav.contact'), href: "/contact" },
+    { label: t('nav.features'), href: "#neden-sardes" },
+    { label: t('nav.clubs'), href: "#kimler-icin" },
+    { label: t('nav.flow'), href: "#nasil-calisir" },
+    { label: t('nav.faq'), href: "#sss" },
   ];
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
     
-    // Handle external links
-    if (href.startsWith('/')) {
-      window.location.href = href;
+    // Handle section scrolling
+    if (href.startsWith('#')) {
+      // Smooth scroll to section - center it vertically on screen
+      const element = document.querySelector(href) as HTMLElement;
+      if (element) {
+        const elementRect = element.getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.pageYOffset;
+        const elementHeight = element.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const navbarHeight = 80; // Account for navbar height
+        
+        // Calculate position to center the section vertically
+        // Position = element top - (window height / 2) + (element height / 2) + navbar offset
+        const middle = absoluteElementTop - (windowHeight / 2) + (elementHeight / 2) - navbarHeight;
+        
+        window.scrollTo({
+          top: Math.max(0, middle), // Ensure we don't scroll above the page
+          behavior: 'smooth'
+        });
+      }
       return;
     }
     
-    // Smooth scroll to section - center it vertically on screen
-    const element = document.querySelector(href) as HTMLElement;
-    if (element) {
-      const elementRect = element.getBoundingClientRect();
-      const absoluteElementTop = elementRect.top + window.pageYOffset;
-      const elementHeight = element.offsetHeight;
-      const windowHeight = window.innerHeight;
-      const navbarHeight = 80; // Account for navbar height
-      
-      // Calculate position to center the section vertically
-      // Position = element top - (window height / 2) + (element height / 2) + navbar offset
-      const middle = absoluteElementTop - (windowHeight / 2) + (elementHeight / 2) - navbarHeight;
-      
-      window.scrollTo({
-        top: Math.max(0, middle), // Ensure we don't scroll above the page
-        behavior: 'smooth'
-      });
+    // Handle external links (fallback)
+    if (href.startsWith('/')) {
+      window.location.href = href;
+      return;
     }
   };
 

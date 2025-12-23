@@ -15,10 +15,9 @@ const translations = {
   tr: {
     // Navbar
     'nav.features': 'Özellikler',
-    'nav.faq': 'SSS',
-    'nav.about': 'Hakkımızda',
     'nav.clubs': 'Kulüpler',
-    'nav.contact': 'İletişim',
+    'nav.flow': 'Akış',
+    'nav.faq': 'SSS',
     'nav.signup': 'Kayıt Ol',
     
     // Hero Section
@@ -183,10 +182,9 @@ const translations = {
   en: {
     // Navbar
     'nav.features': 'Features',
-    'nav.faq': 'FAQ',
-    'nav.about': 'About',
     'nav.clubs': 'Clubs',
-    'nav.contact': 'Contact',
+    'nav.flow': 'Flow',
+    'nav.faq': 'FAQ',
     'nav.signup': 'Sign Up',
     
     // Hero Section
