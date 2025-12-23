@@ -14,11 +14,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const translations = {
   tr: {
     // Navbar
-    'nav.what': 'Ne Yapıyor',
-    'nav.why': 'Neden Sardes',
-    'nav.who': 'Kimler İçin',
-    'nav.how': 'Nasıl Çalışır',
-    'nav.faq': 'SSS',
+    'nav.features': 'Özellikler',
+    'nav.faq': 'Sık Sorulan Sorular',
+    'nav.about': 'Hakkımızda',
+    'nav.clubs': 'Kulüpler',
+    'nav.contact': 'İletişim',
     'nav.signup': 'Kayıt Ol',
     
     // Hero Section
@@ -31,7 +31,7 @@ const translations = {
     'hero.feature3': 'Anlık İçgörüler',
     
     // What Section
-    'what.title': 'Ne Yapıyor?',
+    'what.title': 'Yatırım Kararlarınıza Odaklanın',
     'what.subtitle': 'Yatırımcı davranışınızı anlamanın yeni yolu.',
     'what.card1.title': 'Gerçek Karar Deneyimi',
     'what.card1.desc': 'Teorik sorular yerine, kullanıcılar zaman baskısı ve belirsizlik içeren senaryolarda karar verir.',
@@ -42,7 +42,7 @@ const translations = {
     'what.bottom': 'Sardes, karar anında ne yaptığınıza odaklanır — ne bildiğinize değil.',
     
     // Why Section
-    'why.title': 'Neden <span class="text-primary">Sardes</span>?',
+    'why.title': 'Gerçek Verilerle Kararınızı Geliştirin',
     'why.subtitle': 'Gerçek Problemler. Gerçek İçgörüler.',
     'why.risk.title': 'Risk Yaklaşımı',
     'why.risk.problem': 'Problem',
@@ -61,7 +61,7 @@ const translations = {
     'why.loss.providesText': 'Kayıpların karar verme sürecinizi nasıl etkilediğinin daha iyi anlaşılması.',
     
     // Who Section
-    'who.title': 'Kimler İçin?',
+    'who.title': 'Sardes Kimler İçin?',
     'who.subtitle': 'Sardes, finansal karar alma biçimini gerçek kararlar üzerinden anlamak isteyenler için tasarlandı.',
     'who.individual.title': 'Bireysel Kullanıcılar',
     'who.individual.item1': 'Gerçekçi piyasa senaryolarında yatırım kararlarını test etme',
@@ -78,7 +78,7 @@ const translations = {
     'who.clubs.item5': 'Deneyimsel içerik yoluyla katılımı artırma',
     
     // How Section
-    'how.title': 'Nasıl Çalışır?',
+    'how.title': 'Karar Yolculuğunuz Nasıl İşliyor?',
     'how.subtitle': 'Yatırımcı davranışınızı üç basit adımda keşfedin.',
     'how.step1.title': 'Simülasyonu Tamamlayın',
     'how.step1.desc': 'Gerçek piyasa koşullarını yansıtan senaryolarda kararlar verin.',
@@ -100,6 +100,9 @@ const translations = {
     
     // FAQ
     'faq.title': 'Sık Sorulan Sorular',
+    
+    // Features Section
+    'features.title': 'Sardes Özellikleri',
     'faq.q1': 'Bu bir yatırım oyunu mu?',
     'faq.a1': 'Hayır. Sardes bir oyun değildir. Gerçek para kullanılmaz ve kazanç hedefi yoktur. Amaç, simüle edilmiş senaryolarda verilen kararlar üzerinden davranışsal analiz yapmaktır.',
     'faq.q2': 'Finansal tavsiye veriyor musunuz?',
@@ -179,11 +182,11 @@ const translations = {
   },
   en: {
     // Navbar
-    'nav.what': 'What It Does',
-    'nav.why': 'Why Sardes',
-    'nav.who': 'Who It\'s For',
-    'nav.how': 'How It Works',
+    'nav.features': 'Features',
     'nav.faq': 'FAQ',
+    'nav.about': 'About',
+    'nav.clubs': 'Clubs',
+    'nav.contact': 'Contact',
     'nav.signup': 'Sign Up',
     
     // Hero Section
@@ -196,7 +199,7 @@ const translations = {
     'hero.feature3': 'Instant Insights',
     
     // What Section
-    'what.title': 'What does it do?',
+    'what.title': 'Focus on Your Investment Decisions',
     'what.subtitle': 'A new way to understand your investor behavior.',
     'what.card1.title': 'Real Decision Experience',
     'what.card1.desc': 'Instead of theoretical questions, users make decisions in scenarios involving time pressure and uncertainty.',
@@ -207,7 +210,7 @@ const translations = {
     'what.bottom': 'Sardes focuses on what you do at the moment of decision — not what you know.',
     
     // Why Section
-    'why.title': 'Why <span class="text-primary">Sardes</span>?',
+    'why.title': 'Improve Your Decisions with Real Data',
     'why.subtitle': 'Real Problems. Real Insights.',
     'why.risk.title': 'Risk Approach',
     'why.risk.problem': 'Problem',
@@ -226,7 +229,7 @@ const translations = {
     'why.loss.providesText': 'A better understanding of how losses influence your decision-making process.',
     
     // Who Section
-    'who.title': 'Who Is It For?',
+    'who.title': 'Who Is Sardes For?',
     'who.subtitle': 'Sardes is designed for those who want to understand their financial decision-making through real decisions.',
     'who.individual.title': 'Individual Users',
     'who.individual.item1': 'Test investment decisions in realistic market scenarios',
@@ -243,7 +246,7 @@ const translations = {
     'who.clubs.item5': 'Increase engagement through experiential content',
     
     // How Section
-    'how.title': 'How It Works',
+    'how.title': 'How Does Your Decision Journey Work?',
     'how.subtitle': 'Discover your investor behavior in three simple steps.',
     'how.step1.title': 'Complete the Simulation',
     'how.step1.desc': 'Make decisions in scenarios that reflect real market conditions.',
@@ -265,6 +268,9 @@ const translations = {
     
     // FAQ
     'faq.title': 'Frequently Asked Questions',
+    
+    // Features Section
+    'features.title': 'Sardes Features',
     'faq.q1': 'Is this an investment game?',
     'faq.a1': 'No. Sardes is not a game. Real money is not used and there is no profit goal. The purpose is to conduct behavioral analysis through decisions made in simulated scenarios.',
     'faq.q2': 'Do you provide financial advice?',

@@ -9,15 +9,21 @@ const Navbar = () => {
   const { t } = useLanguage();
 
   const navItems = [
-    { label: t('nav.what'), href: "#ne-yapiyor" },
-    { label: t('nav.why'), href: "#neden-sardes" },
-    { label: t('nav.who'), href: "#kimler-icin" },
-    { label: t('nav.how'), href: "#nasil-calisir" },
+    { label: t('nav.features'), href: "#ozellikler" },
     { label: t('nav.faq'), href: "#sss" },
+    { label: t('nav.about'), href: "#hakkimizda" },
+    { label: t('nav.clubs'), href: "/clubs" },
+    { label: t('nav.contact'), href: "#iletisim" },
   ];
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
+    
+    // Handle external links
+    if (href.startsWith('/')) {
+      window.location.href = href;
+      return;
+    }
     
     // Smooth scroll to section - center it vertically on screen
     const element = document.querySelector(href) as HTMLElement;

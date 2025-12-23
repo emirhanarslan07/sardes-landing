@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { 
   Brain, 
   Target, 
@@ -173,6 +174,7 @@ const FeatureModal = ({ feature, isOpen, onClose }: FeatureModalProps) => {
 };
 
 const FeaturesSection = () => {
+  const { t } = useLanguage();
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -187,11 +189,11 @@ const FeaturesSection = () => {
   };
 
   return (
-    <section id="features" className="py-20 px-6">
+    <section id="ozellikler" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Platform <span className="text-primary">Özellikleri</span>
+            {t('features.title')}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Sardes'in güçlü özellikleri ile yatırımcı karakterinizi keşfedin ve finansal kararlarınızı geliştirin.

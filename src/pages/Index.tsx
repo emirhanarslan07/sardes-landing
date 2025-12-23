@@ -1,12 +1,10 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import WhoIsItForSection from "@/components/WhoIsItForSection";
-import WhySardesSection from "@/components/WhySardesSection";
-import ProblemSolutionSection from "@/components/ProblemSolutionSection";
-import RiskScoreCard from "@/components/RiskScoreCard";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import FinalCTASection from "@/components/FinalCTASection";
+import FeaturesSection from "@/components/FeaturesSection";
 import FAQSection from "@/components/FAQSection";
+import AboutSection from "@/components/AboutSection";
+import ContactSection from "@/components/ContactSection";
+import FinalCTASection from "@/components/FinalCTASection";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -47,39 +45,25 @@ const Index = () => {
           <HeroSection />
         </section>
         
-        {/* 2. Ne Yapıyor? */}
-        <WhySardesSection />
-        
-        {/* 3. Neden Sardes? - Problem-Çözüm Kartları */}
-        <ProblemSolutionSection />
-        
-        {/* 4. Kimler İçin? (Bireysel / Kurumsal) */}
-        <div id="kimler-icin" className="section-bg section-accent-blue">
-          <WhoIsItForSection />
+        {/* 2. Özellikler */}
+        <div id="ozellikler" className="section-bg">
+          <FeaturesSection />
         </div>
         
-        {/* 5. Nasıl Çalışır (3 adım) */}
-        <div id="nasil-calisir" className="section-bg section-accent-purple">
-          <HowItWorksSection />
-        </div>
-        
-        {/* 6. Analiz Örneği */}
-        <section id="analiz-ornegi" className="py-20 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              {t('analysis.title')}
-            </h2>
-            <p className="text-secondary mb-16 max-w-2xl mx-auto">
-              {t('analysis.subtitle')}
-            </p>
-            <RiskScoreCard />
-          </div>
-        </section>
-        
-        {/* 8. FAQ */}
+        {/* 3. SSS */}
         <FAQSection />
         
-        {/* 9. Erken Erişim CTA (form) - En son */}
+        {/* 4. Hakkımızda */}
+        <div id="hakkimizda" className="section-bg section-accent-blue">
+          <AboutSection />
+        </div>
+        
+        {/* 5. İletişim */}
+        <div id="iletisim" className="section-bg section-accent-purple">
+          <ContactSection />
+        </div>
+        
+        {/* 6. Erken Erişim CTA (form) - En son */}
         <div id="erken-erisim">
           <FinalCTASection />
         </div>
