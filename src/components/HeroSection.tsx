@@ -42,18 +42,36 @@ const HeroSection = () => {
         
         {/* Main Headline */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 opacity-0 animate-fade-in-up"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.1s' }}
           dangerouslySetInnerHTML={{ __html: t('hero.title') }}
         />
         
+        {/* Subtitle */}
+        <h2 
+          className="text-xl sm:text-2xl text-muted-foreground mb-8 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: '0.2s' }}
+        >
+          {t('hero.subtitle')}
+        </h2>
+        
         {/* Description */}
         <p 
-          className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-12 leading-relaxed opacity-0 animate-fade-in-up"
+          className="text-muted-foreground text-base sm:text-lg max-w-3xl mx-auto mb-8 leading-relaxed opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.3s' }}
         >
           {t('hero.description')}
         </p>
+        
+        {/* Disclaimer */}
+        <div 
+          className="inline-flex items-center bg-muted/30 backdrop-blur-md border border-border/30 rounded-full px-6 py-3 mb-12 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: '0.4s' }}
+        >
+          <span className="text-muted-foreground text-sm font-medium">
+            {t('hero.disclaimer')}
+          </span>
+        </div>
         
         {/* Key Features */}
         <div 
@@ -94,7 +112,7 @@ const HeroSection = () => {
             size="lg"
             className="text-base font-medium px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl transition-all duration-300 hover:scale-105"
           >
-            Erken Erişime Katıl
+            {t('hero.cta')}
           </Button>
         </div>
         

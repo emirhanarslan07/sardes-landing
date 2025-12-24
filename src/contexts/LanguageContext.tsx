@@ -24,7 +24,9 @@ const translations = {
     // Hero Section
     'hero.badge': 'Davranış Odaklı Analiz',
     'hero.title': '<span class="text-primary">Sardes</span> ile yatırımcı davranışınızı keşfedin',
-    'hero.description': 'Sardes, gerçekçi piyasa senaryolarında verdiğiniz kararları gözlemler. Bu kararlar, risk yaklaşımınızı, stres altındaki karar verme biçiminizi ve kayıp sonrası tepkilerinizi anlamanıza yardımcı olan içgörülere dönüştürülür.',
+    'hero.subtitle': 'Yatırım kararlarında nasıl davrandığını hiç gözlemledin mi?',
+    'hero.description': 'Sardes, gerçekçi piyasa senaryolarında verdiğiniz kararları gözlemler. Bilginizi değil; risk yaklaşımınızı, stres altındaki reflekslerinizi ve kayıp sonrası tepkilerinizi anlamaya odaklanır. Amaç, sonucu değil karar anındaki davranışı görünür kılmaktır.',
+    'hero.disclaimer': 'Gerçek para yok • Finansal tavsiye yok • Sadece davranış analizi',
     'hero.cta': 'Erken Erişim İçin Kayıt Ol',
     'hero.feature1': 'Davranış Analizi',
     'hero.feature2': 'Gerçekçi Senaryolar',
@@ -192,7 +194,9 @@ const translations = {
     // Hero Section
     'hero.badge': 'Behavior-Driven Analysis',
     'hero.title': 'Discover your investor behavior with <span class="text-primary">Sardes</span>',
-    'hero.description': 'Sardes observes the decisions you make in realistic market scenarios. These decisions are transformed into insights that help you understand your risk approach, decision-making under stress, and reactions after losses.',
+    'hero.subtitle': 'Have you ever observed how you behave in investment decisions?',
+    'hero.description': 'Sardes observes the decisions you make in realistic market scenarios. It focuses on understanding not your knowledge, but your risk approach, reflexes under stress, and reactions after losses. The goal is to make visible the behavior at the moment of decision, not the outcome.',
+    'hero.disclaimer': 'No real money • No financial advice • Only behavioral analysis',
     'hero.cta': 'Sign Up for Early Access',
     'hero.feature1': 'Behavior Analysis',
     'hero.feature2': 'Realistic Scenarios',
