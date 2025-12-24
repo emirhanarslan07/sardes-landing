@@ -25,7 +25,7 @@ const translations = {
     'hero.badge': 'Davranış Odaklı Analiz',
     'hero.title': '<span class="text-primary">Sardes</span> ile yatırımcı davranışınızı keşfedin',
     'hero.description': 'Sardes, gerçekçi piyasa senaryolarında verdiğiniz kararları gözlemler. Bu kararlar, risk yaklaşımınızı, stres altındaki karar verme biçiminizi ve kayıp sonrası tepkilerinizi anlamanıza yardımcı olan içgörülere dönüştürülür.',
-    'hero.cta': 'Erken Erişim İçin Kayıt Ol',
+    'hero.cta': '✨Hemen Başla',
     'hero.feature1': 'Davranış Analizi',
     'hero.feature2': 'Gerçekçi Senaryolar',
     'hero.feature3': 'Anlık İçgörüler',
@@ -99,7 +99,7 @@ const translations = {
     'analysis.note': '* Gösterilen değerler temsilidir. Bunlar performans veya başarı puanları değil, davranışsal eğilimlerin göstergeleridir.',
     
     // FAQ
-    'faq.title': 'Sık Sorulan Sorular',
+    'faq.title': 'Merak Ettikleriniz',
     
     // Features Section
     'features.title': 'Sardes Özellikleri',
@@ -122,7 +122,7 @@ const translations = {
     'cta.feature1': 'Bireysel farkındalık',
     'cta.feature2': 'Gerçekçi senaryolar',
     'cta.feature3': 'Kişisel gelişime odaklı',
-    'cta.button': 'Erken Erişime Katıl',
+    'cta.button': '✨Hemen Başla',
     'cta.clubs': 'Kulüp veya öğrenci topluluğu musunuz?',
     'cta.clubsLink': 'Kulüp olarak Sardes\'i keşfedin →',
     
@@ -135,7 +135,7 @@ const translations = {
     'form.graduate': 'Yeni mezunum',
     'form.working': 'Çalışıyorum',
     'form.other': 'Diğer',
-    'form.submit': 'Erken Erişim İçin Kayıt Ol',
+    'form.submit': '✨Hemen Başla',
     'form.submitting': 'Kaydediliyor...',
     'form.success': 'Katıldın!',
     'form.successMessage': 'Sardes hazır olduğunda seni bilgilendireceğiz.',
@@ -167,7 +167,7 @@ const translations = {
     'club.errorGeneral': 'Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.',
     
     // Buttons
-    'btn.joinEarlyAccess': 'Erken Erişime Katıl',
+    'btn.joinEarlyAccess': '✨Hemen Başla',
     'btn.learnMore': 'Daha Fazla Bilgi',
     
     // Footer
@@ -193,7 +193,7 @@ const translations = {
     'hero.badge': 'Behavior-Driven Analysis',
     'hero.title': 'Discover your investor behavior with <span class="text-primary">Sardes</span>',
     'hero.description': 'Sardes observes the decisions you make in realistic market scenarios. These decisions are transformed into insights that help you understand your risk approach, decision-making under stress, and reactions after losses.',
-    'hero.cta': 'Sign Up for Early Access',
+    'hero.cta': '✨Get Started',
     'hero.feature1': 'Behavior Analysis',
     'hero.feature2': 'Realistic Scenarios',
     'hero.feature3': 'Instant Insights',
@@ -267,7 +267,7 @@ const translations = {
     'analysis.note': '* The values shown are representative. They are not performance or success scores, but indicators of behavioral tendencies.',
     
     // FAQ
-    'faq.title': 'Frequently Asked Questions',
+    'faq.title': 'What You Wonder',
     
     // Features Section
     'features.title': 'Sardes Features',
@@ -290,7 +290,7 @@ const translations = {
     'cta.feature1': 'Individual awareness',
     'cta.feature2': 'Realistic scenarios',
     'cta.feature3': 'Focused on personal development',
-    'cta.button': 'Join Early Access',
+    'cta.button': '✨Get Started',
     'cta.clubs': 'Are you a club or student community?',
     'cta.clubsLink': 'Discover Sardes as a club →',
     
@@ -303,7 +303,7 @@ const translations = {
     'form.graduate': 'I am a recent graduate',
     'form.working': 'I am working',
     'form.other': 'Other',
-    'form.submit': 'Sign Up for Early Access',
+    'form.submit': '✨Get Started',
     'form.submitting': 'Submitting...',
     'form.success': 'You\'re in!',
     'form.successMessage': 'We\'ll notify you when Sardes is ready.',
@@ -335,7 +335,7 @@ const translations = {
     'club.errorGeneral': 'An unexpected error occurred. Please try again.',
     
     // Buttons
-    'btn.joinEarlyAccess': 'Join Early Access',
+    'btn.joinEarlyAccess': '✨Get Started',
     'btn.learnMore': 'Learn More',
     
     // Footer

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { User, Users, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackCTAClick } from "@/lib/analytics";
-import { Link } from "react-router-dom";
 
 const WhoIsItForSection = () => {
   const { t } = useLanguage();
@@ -73,7 +72,7 @@ const WhoIsItForSection = () => {
                 onClick={scrollToEarlyAccess}
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                Erken Erişime Katıl
+                ✨Hemen Başla
               </Button>
             </div>
           </Card>
@@ -114,14 +113,15 @@ const WhoIsItForSection = () => {
             
             {/* CTA Button for Clubs */}
             <div className="mt-6">
-              <Link to="/clubs">
-                <Button 
-                  onClick={() => handleCTAClick('Kulüp Olarak Sardes\'i Keşfedin')}
-                  className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
-                >
-                  Kulüp Olarak Sardes'i Keşfedin
-                </Button>
-              </Link>
+              <Button 
+                onClick={() => {
+                  handleCTAClick('Kulüp Olarak Sardes\'i Keşfedin');
+                  scrollToEarlyAccess();
+                }}
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
+                Kulüp Olarak Sardes'i Keşfedin
+              </Button>
             </div>
           </Card>
         </div>
