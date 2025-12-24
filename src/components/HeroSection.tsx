@@ -15,7 +15,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative overflow-hidden" style={{ paddingTop: '80px' }}>
+    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative overflow-hidden" style={{ paddingTop: '100px' }}>
 
       {/* Subtle Background Decorations */}
       <div className="absolute top-1/4 left-10 w-20 h-20 rounded-full blur-xl float-element" style={{ background: 'linear-gradient(135deg, rgba(120, 219, 226, 0.1), rgba(59, 130, 246, 0.05))' }}></div>
@@ -63,7 +63,7 @@ const HeroSection = () => {
         
         {/* Disclaimer with Icons */}
         <div 
-          className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-8 opacity-0 animate-fade-in-up"
+          className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-6 opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.4s' }}
         >
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -91,7 +91,7 @@ const HeroSection = () => {
         
         {/* CTA Button */}
         <div 
-          className="mt-8 opacity-0 animate-fade-in-up"
+          className="mt-6 opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.5s' }}
         >
           <Button 
