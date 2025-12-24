@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import WaitlistForm from "./WaitlistForm";
 import ClubApplicationForm from "./ClubApplicationForm";
+import InterestModal from "./InterestModal";
 import { useState } from "react";
 import { Check } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,9 +12,25 @@ const FinalCTASection = () => {
   const { t } = useLanguage();
   const [showForm, setShowForm] = useState(false);
   const [showClubForm, setShowClubForm] = useState(false);
+  const [isInterestModalOpen, setIsInterestModalOpen] = useState(false);
 
   const handleCTAClick = (buttonName: string) => {
     trackCTAClick(buttonName);
+  };
+
+  const handleInterestClick = () => {
+    // Track CTA click
+    trackCTAClick('Erken Erişime Katıl');
+    
+    // Track specific interest modal open event
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'interest_modal_open', {
+        event_category: 'engagement',
+        event_label: 'final_cta_click'
+      });
+    }
+    
+    setIsInterestModalOpen(true);
   };
 
   return (
@@ -63,10 +80,7 @@ const FinalCTASection = () => {
               <>
                 <Button 
                   size="lg" 
-                  onClick={() => {
-                    handleCTAClick('Erken Erişime Katıl');
-                    setShowForm(true);
-                  }}
+                  onClick={handleInterestClick}
                   className="text-base font-medium px-10 py-4 mb-6 btn-cta btn-ripple interactive-btn pulse-glow text-white rounded-xl"
                 >
                   {t('cta.button')}
@@ -98,6 +112,12 @@ const FinalCTASection = () => {
       {showClubForm && (
         <ClubApplicationForm onClose={() => setShowClubForm(false)} />
       )}
+      
+      {/* Interest Modal */}
+      <InterestModal 
+        isOpen={isInterestModalOpen} 
+        onClose={() => setIsInterestModalOpen(false)} 
+      />
     </section>
   );
 };
