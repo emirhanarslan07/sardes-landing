@@ -72,7 +72,7 @@ const WhoIsItForSection = () => {
                 onClick={scrollToEarlyAccess}
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                ✨Hemen Başla
+                Erken Erişime Katıl
               </Button>
             </div>
           </Card>
