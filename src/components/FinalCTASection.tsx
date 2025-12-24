@@ -5,20 +5,21 @@ import { useState } from "react";
 import { Check } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackCTAClick } from "@/lib/analytics";
-import { Link } from "react-router-dom";
 
 const FinalCTASection = () => {
   const { t } = useLanguage();
   const [showClubForm, setShowClubForm] = useState(false);
   const [isInterestModalOpen, setIsInterestModalOpen] = useState(false);
+  const [isClubModalOpen, setIsClubModalOpen] = useState(false);
 
-  const handleCTAClick = (buttonName: string) => {
-    trackCTAClick(buttonName);
+  const handleClubClick = () => {
+    trackCTAClick(t('cta.clubsLink'));
+    setIsClubModalOpen(true);
   };
 
   const handleInterestClick = () => {
     // Track CTA click
-    trackCTAClick('Erken Erişime Katıl');
+    trackCTAClick(t('cta.button'));
     
     // Track specific interest modal open event
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -87,13 +88,12 @@ const FinalCTASection = () => {
               <p className="text-sm text-muted-foreground mb-2">
                 {t('cta.clubs')}
               </p>
-              <Link 
-                to="/clubs"
-                onClick={() => handleCTAClick('Kulüp Olarak Sardes\'i Keşfedin')}
+              <button 
+                onClick={handleClubClick}
                 className="text-primary hover:text-primary/80 text-sm font-medium underline underline-offset-4 transition-colors"
               >
                 {t('cta.clubsLink')}
-              </Link>
+              </button>
             </div>
           </div>
           </div>
@@ -109,6 +109,14 @@ const FinalCTASection = () => {
       <InterestModal 
         isOpen={isInterestModalOpen} 
         onClose={() => setIsInterestModalOpen(false)} 
+        type="individual"
+      />
+      
+      {/* Club Modal */}
+      <InterestModal 
+        isOpen={isClubModalOpen} 
+        onClose={() => setIsClubModalOpen(false)} 
+        type="club"
       />
     </section>
   );

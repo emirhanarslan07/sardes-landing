@@ -62,58 +62,73 @@ const Navbar = () => {
               <img 
                 src="/sardes-logo.png" 
                 alt="Sardes Logo" 
-                className="w-12 h-12"
+                className="w-10 h-10 md:w-12 md:h-12"
               />
-              <div className="flex items-baseline gap-3">
-                <span className="font-semibold tracking-tight font-poppins" style={{ fontSize: '1.5rem' }}>
+              <div className="flex items-center gap-2 md:gap-3">
+                <span className="font-semibold tracking-tight font-poppins text-lg md:text-2xl">
                   Sardes
                 </span>
-                <span className="bg-primary/10 text-primary/70 px-1.5 py-0.5 rounded-full text-xs font-medium transform -translate-y-1">
+                <span className="bg-primary/10 text-primary/70 px-1 py-0.5 md:px-1.5 rounded-full text-xs font-medium">
                   BETA
                 </span>
               </div>
             </button>
           </div>
 
-          {/* Navigation Links - Orta (Tam Ortalı) */}
-          <div className="hidden md:flex items-center justify-center gap-6">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => handleNavClick(item.href)}
-                className="text-sm font-medium text-muted-foreground nav-link-enhanced"
+          {/* Navigation Links - Orta (Desktop) / Empty (Mobile) */}
+          <div className="flex items-center justify-center">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => handleNavClick(item.href)}
+                  className="text-sm font-medium text-muted-foreground nav-link-enhanced whitespace-nowrap"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Language Toggle + CTA (Desktop) / Mobile CTA + Menu Button (Mobile) */}
+          <div className="flex items-center justify-end">
+            {/* Desktop */}
+            <div className="hidden md:flex items-center gap-4">
+              <LanguageToggle />
+              
+              <Button 
+                size="sm" 
+                onClick={() => handleNavClick("#erken-erisim")}
+                className="ml-1 text-sm font-medium btn-badge-modern flex items-center gap-1.5"
               >
-                {item.label}
+                <span>⚡</span>
+                {t('nav.signup')}
+              </Button>
+            </div>
+
+            {/* Mobile CTA + Menu Button */}
+            <div className="md:hidden flex items-center gap-2">
+              <Button 
+                size="sm" 
+                onClick={() => handleNavClick("#erken-erisim")}
+                className="text-xs px-2 py-1.5 btn-badge-modern flex items-center gap-1"
+              >
+                <span>⚡</span>
+                <span>{t('nav.signup')}</span>
+              </Button>
+              <button
+                className="p-2 hover:bg-primary/10 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
               </button>
-            ))}
-          </div>
-
-          {/* Language Toggle + CTA - Sağ */}
-          <div className="hidden md:flex items-center justify-end gap-4">
-            <LanguageToggle />
-            
-            <Button 
-              size="sm" 
-              onClick={() => handleNavClick("#erken-erisim")}
-              className="ml-1 text-sm font-medium btn-badge-modern"
-            >
-              {t('nav.signup')}
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button - Sağ (Mobile) */}
-          <div className="md:hidden flex justify-end">
-            <button
-              className="p-1 -mr-1"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
-            </button>
+            </div>
           </div>
         </div>
       </div>
@@ -132,18 +147,11 @@ const Navbar = () => {
               </button>
             ))}
             
-            {/* Mobile Language Toggle and CTA */}
+            {/* Mobile Language Toggle */}
             <div className="pt-2 border-t border-border/20 space-y-2">
               <div className="flex items-center justify-center">
                 <LanguageToggle />
               </div>
-              <Button 
-                size="sm" 
-                onClick={() => handleNavClick("#erken-erisim")}
-                className="w-full text-sm font-medium btn-badge-modern"
-              >
-                {t('nav.signup')}
-              </Button>
             </div>
           </div>
         </div>

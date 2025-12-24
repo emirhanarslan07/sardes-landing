@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { submitClubApplication } from "@/lib/supabase";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ClubApplicationFormProps {
   onClose: () => void;
 }
 
 const ClubApplicationForm = ({ onClose }: ClubApplicationFormProps) => {
+  const { t } = useLanguage();
+  
   // Add modal-open class to body when component mounts
   useEffect(() => {
     document.body.classList.add('modal-open');
@@ -77,7 +80,7 @@ const ClubApplicationForm = ({ onClose }: ClubApplicationFormProps) => {
       setIsSubmitted(true);
     } catch (error) {
       console.error('Form submission error:', error);
-      setError(error instanceof Error ? error.message : 'Başvuru gönderilirken hata oluştu. Lütfen tekrar deneyin.');
+      setError(error instanceof Error ? error.message : t('club.errorGeneral'));
     } finally {
       setIsSubmitting(false);
     }
@@ -122,9 +125,9 @@ const ClubApplicationForm = ({ onClose }: ClubApplicationFormProps) => {
       <div className="bg-background border border-border/30 rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto modal-content">
         <div className="flex items-center justify-between p-6 border-b border-border/30">
           <div>
-            <h2 className="text-2xl font-bold">Kulüp Olarak Sardes'i Keşfedin</h2>
+            <h2 className="text-2xl font-bold">{t('club.title')}</h2>
             <p className="text-muted-foreground text-sm mt-1">
-              Kulübünüz için özel demo ve bilgi almak için başvurun
+              {t('club.subtitle').split('\n')[0]}
             </p>
           </div>
           <button
@@ -193,7 +196,7 @@ const ClubApplicationForm = ({ onClose }: ClubApplicationFormProps) => {
               className="w-full btn-badge-modern"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Gönderiliyor...' : 'Başvuru Gönder'}
+              {isSubmitting ? t('club.submitting') : t('club.submit')}
             </Button>
           </div>
         </form>

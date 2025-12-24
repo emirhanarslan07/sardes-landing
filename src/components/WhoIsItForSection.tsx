@@ -69,12 +69,12 @@ const WhoIsItForSection = () => {
             <div className="mt-6">
               <Button 
                 onClick={() => {
-                  handleCTAClick('Erken Erişime Katıl');
+                  handleCTAClick(t('btn.joinEarlyAccess'));
                   scrollToFinalCTA();
                 }}
                 className="w-full btn-badge-modern"
               >
-                Erken Erişime Katıl
+                {t('btn.joinEarlyAccess')}
               </Button>
             </div>
           </Card>
@@ -117,12 +117,12 @@ const WhoIsItForSection = () => {
             <div className="mt-6">
               <Button 
                 onClick={() => {
-                  handleCTAClick('Kulüp Olarak Sardes\'i Keşfedin');
+                  handleCTAClick(t('btn.discoverAsClub'));
                   scrollToFinalCTA();
                 }}
                 className="w-full btn-badge-modern"
               >
-                Kulüp Olarak Sardes'i Keşfedin
+                {t('btn.discoverAsClub')}
               </Button>
             </div>
           </Card>

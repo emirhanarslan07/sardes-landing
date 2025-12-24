@@ -1,40 +1,56 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { submitInterest } from "@/lib/supabase";
+import { submitInterest, submitClubApplication } from "@/lib/supabase";
 import { interestEmitter } from "@/hooks/useWaitlistCount";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface InterestModalProps {
   isOpen: boolean;
   onClose: () => void;
+  type?: 'individual' | 'club';
 }
 
-const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
+const InterestModal = ({ isOpen, onClose, type = 'individual' }: InterestModalProps) => {
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [selectedInterest, setSelectedInterest] = useState("");
+  const [clubName, setClubName] = useState("");
+  const [university, setUniversity] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
 
   const interestOptions = [
-    { value: 'behavioral_analysis', label: 'Davranış analizi yaklaşımı' },
-    { value: 'realistic_scenarios', label: 'Gerçekçi piyasa senaryoları' },
-    { value: 'self_awareness', label: 'Kişisel gelişim odağı' },
-    { value: 'educational_potential', label: 'Eğitim/öğrenme potansiyeli' },
-    { value: 'exploring', label: 'Diğer' },
+    { value: 'behavioral_analysis', label: t('interest.option1') },
+    { value: 'realistic_scenarios', label: t('interest.option2') },
+    { value: 'self_awareness', label: t('interest.option3') },
+    { value: 'educational_potential', label: t('interest.option4') },
+    { value: 'exploring', label: t('interest.option5') },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email.trim()) {
-      setError('Email adresi gereklidir');
+      setError(t('club.errorEmail'));
       return;
     }
 
-    if (!selectedInterest) {
-      setError('Lütfen bir seçenek seçin');
+    if (type === 'individual' && !selectedInterest) {
+      setError(t('interest.error'));
       return;
+    }
+
+    if (type === 'club') {
+      if (!clubName.trim()) {
+        setError(t('club.errorClubName'));
+        return;
+      }
+      if (!university.trim()) {
+        setError(t('club.errorUniversity'));
+        return;
+      }
     }
 
     setIsSubmitting(true);
@@ -42,31 +58,48 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
 
     // Track form submission
     if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'interest_form_submit', {
+      (window as any).gtag('event', `${type}_form_submit`, {
         event_category: 'engagement',
-        event_label: 'hero_interest_modal'
+        event_label: type === 'individual' ? 'hero_interest_modal' : 'club_application_modal'
       });
     }
 
     try {
-      console.log('Form data being submitted:', {
-        email: email.trim(),
-        interest_reason: selectedInterest
-      });
+      if (type === 'individual') {
+        console.log('Form data being submitted:', {
+          email: email.trim(),
+          interest_reason: selectedInterest
+        });
+        
+        const result = await submitInterest({
+          email: email.trim(),
+          interest_reason: selectedInterest
+        });
+        
+        console.log('Submission result:', result);
+        
+        // Emit event to update counter
+        interestEmitter.emit();
+      } else {
+        console.log('Club application being submitted:', {
+          club_name: clubName.trim(),
+          university: university.trim(),
+          email: email.trim()
+        });
+        
+        const result = await submitClubApplication({
+          club_name: clubName.trim(),
+          university: university.trim(),
+          email: email.trim()
+        });
+        
+        console.log('Club application result:', result);
+      }
       
-      const result = await submitInterest({
-        email: email.trim(),
-        interest_reason: selectedInterest
-      });
-      
-      console.log('Submission result:', result);
       setIsSuccess(true);
-      
-      // Emit event to update counter
-      interestEmitter.emit();
     } catch (error) {
-      console.error('Interest submission error:', error);
-      setError(error instanceof Error ? error.message : 'Bir hata oluştu. Lütfen tekrar deneyin.');
+      console.error(`${type} submission error:`, error);
+      setError(error instanceof Error ? error.message : t('club.errorGeneral'));
     } finally {
       setIsSubmitting(false);
     }
@@ -75,6 +108,8 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
   const handleClose = () => {
     setEmail("");
     setSelectedInterest("");
+    setClubName("");
+    setUniversity("");
     setError("");
     setIsSuccess(false);
     onClose();
@@ -104,58 +139,109 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
           // Success State
           <div className="text-center py-4">
             <div className="text-4xl mb-4">🎉</div>
-            <h3 className="text-xl font-bold mb-2">Teşekkürler!</h3>
-            <p className="text-muted-foreground">İlgin kaydedildi. Gelişmelerden haberdar olacaksın.</p>
+            <h3 className="text-xl font-bold mb-2">{t('interest.success')}</h3>
+            <p className="text-muted-foreground">
+              {type === 'individual' 
+                ? t('interest.successMessage')
+                : t('club.successMessage')
+              }
+            </p>
           </div>
         ) : (
           // Form State
           <>
             <div className="text-center mb-6">
-              <h3 className="text-xl font-bold mb-2">İlgin için teşekkürler 🙌</h3>
+              <h3 className="text-xl font-bold mb-2">
+                {type === 'individual' 
+                  ? t('interest.title')
+                  : t('club.title')
+                }
+              </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Sardes erken aşamada. Bu fikrin kimlerde yankı bulduğunu anlamaya çalışıyoruz.
+                {type === 'individual' 
+                  ? t('interest.subtitle')
+                  : t('club.subtitle')
+                }
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              {type === 'club' && (
+                <>
+                  {/* Club Name Input */}
+                  <div>
+                    <label htmlFor="clubName" className="block text-sm font-medium mb-2">
+                      {t('club.clubName')} *
+                    </label>
+                    <input
+                      type="text"
+                      id="clubName"
+                      value={clubName}
+                      onChange={(e) => setClubName(e.target.value)}
+                      placeholder={t('club.clubName')}
+                      className="w-full px-3 py-2 bg-background/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                      required
+                    />
+                  </div>
+
+                  {/* University Input */}
+                  <div>
+                    <label htmlFor="university" className="block text-sm font-medium mb-2">
+                      {t('club.university')} *
+                    </label>
+                    <input
+                      type="text"
+                      id="university"
+                      value={university}
+                      onChange={(e) => setUniversity(e.target.value)}
+                      placeholder={t('club.university')}
+                      className="w-full px-3 py-2 bg-background/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                      required
+                    />
+                  </div>
+                </>
+              )}
+
               {/* Email Input */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  E-posta adresin *
+                  {type === 'club' ? t('club.email') : t('interest.email')} *
                 </label>
                 <input
                   type="email"
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="ornek@email.com"
+                  placeholder={t('interest.emailPlaceholder')}
                   className="w-full px-3 py-2 bg-background/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                   required
                 />
               </div>
 
-              {/* Interest Options */}
-              <div>
-                <label className="block text-sm font-medium mb-3">
-                  Sardes'i hangi açıdan ilginç buldun? *
-                </label>
-                <div className="space-y-2">
-                  {interestOptions.map((option) => (
-                    <label key={option.value} className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="interest"
-                        value={option.value}
-                        checked={selectedInterest === option.value}
-                        onChange={(e) => setSelectedInterest(e.target.value)}
-                        className="text-primary focus:ring-primary/50"
-                        required
-                      />
-                      <span className="text-sm">{option.label}</span>
-                    </label>
-                  ))}
+              {type === 'individual' && (
+                /* Interest Options */
+                <div>
+                  <label className="block text-sm font-medium mb-3">
+                    {t('interest.question')}
+                  </label>
+                  <div className="space-y-2">
+                    {interestOptions.map((option) => (
+                      <label key={option.value} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="interest"
+                          value={option.value}
+                          checked={selectedInterest === option.value}
+                          onChange={(e) => setSelectedInterest(e.target.value)}
+                          className="text-primary focus:ring-primary/50"
+                          required
+                        />
+                        <span className="text-sm">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Error Message */}
               {error && (
@@ -170,7 +256,10 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
                 disabled={isSubmitting}
                 className="w-full btn-badge-modern"
               >
-                {isSubmitting ? 'Gönderiliyor...' : 'İlgi Kaydı Yap'}
+                {isSubmitting 
+                  ? (type === 'individual' ? t('interest.submitting') : t('club.submitting'))
+                  : (type === 'individual' ? t('interest.submit') : t('club.submit'))
+                }
               </Button>
             </form>
           </>

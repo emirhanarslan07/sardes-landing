@@ -2271,13 +2271,14 @@ html {
 .duration-300 {
   animation-duration: 300ms;
 }
-/* Modern Badge Button - Turkuaz */
+/* Modern Badge Button - Turkuaz with Dark Text */
 @layer components {
   .btn-badge-modern {
     @apply relative overflow-hidden backdrop-blur-sm;
     background: linear-gradient(135deg, #2DD4BF, #14B8A6);
     border: none;
-    color: white;
+    color: #1e293b !important; /* slate-800 with !important */
+    font-weight: 600;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 
       0 4px 15px rgba(45, 212, 191, 0.3),
@@ -2287,7 +2288,7 @@ html {
   
   .btn-badge-modern:hover {
     background: linear-gradient(135deg, #14B8A6, #0D9488);
-    color: white;
+    color: #0f172a !important; /* slate-900 for even better contrast on hover */
     transform: translateY(-2px) scale(1.02);
     box-shadow: 
       0 8px 25px rgba(45, 212, 191, 0.4),
@@ -2297,6 +2298,7 @@ html {
   
   .btn-badge-modern:active {
     transform: translateY(-1px) scale(1.01);
+    color: #0f172a !important;
   }
   
   .btn-badge-modern::before {
@@ -2319,5 +2321,58 @@ html {
     transform: none;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     cursor: not-allowed;
+    color: #94a3b8 !important;
+  }
+
+  /* Mobile-optimized badge button with better contrast */
+  .btn-badge-mobile {
+    @apply relative overflow-hidden backdrop-blur-sm;
+    background: linear-gradient(135deg, #2DD4BF, #14B8A6);
+    border: none;
+    color: #1e293b !important; /* slate-800 with !important */
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+      0 4px 15px rgba(45, 212, 191, 0.3),
+      0 2px 8px rgba(45, 212, 191, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .btn-badge-mobile:hover {
+    background: linear-gradient(135deg, #14B8A6, #0D9488);
+    color: #0f172a !important; /* slate-900 for even better contrast on hover */
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      0 8px 25px rgba(45, 212, 191, 0.4),
+      0 4px 15px rgba(45, 212, 191, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-badge-mobile:active {
+    transform: translateY(-1px) scale(1.01);
+    color: #0f172a !important;
+  }
+  
+  .btn-badge-mobile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .btn-badge-mobile:hover::before {
+    left: 100%;
+  }
+  
+  .btn-badge-mobile:disabled {
+    background: linear-gradient(135deg, #666, #555);
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: not-allowed;
+    color: #94a3b8 !important;
   }
 }

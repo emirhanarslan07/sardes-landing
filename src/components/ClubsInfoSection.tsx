@@ -2,12 +2,14 @@ import { Mail } from "lucide-react";
 import { useState } from "react";
 import ClubApplicationForm from "./ClubApplicationForm";
 import { trackCTAClick } from "@/lib/analytics";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ClubsInfoSection = () => {
+  const { t } = useLanguage();
   const [showClubForm, setShowClubForm] = useState(false);
 
   const handleCTAClick = () => {
-    trackCTAClick('Kulüp Olarak Sardes\'i Keşfedin');
+    trackCTAClick(t('clubsInfo.button'));
     setShowClubForm(true);
   };
 
@@ -16,14 +18,14 @@ const ClubsInfoSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-6">
-            Kulüpler için <span className="text-primary">Sardes</span>
-          </h1>
+          <h1 
+            className="text-3xl sm:text-4xl font-bold mb-6"
+            dangerouslySetInnerHTML={{ __html: t('clubsInfo.title') }}
+          />
           
           {/* Sardes Tanımı */}
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed mb-8">
-            Sardes, gerçek piyasa senaryolarında karar vererek yatırımcı karakterinizi keşfetmenizi sağlayan bir senaryo bazlı deneyim platformudur. 
-            Kulübünüz için özel oturumlar düzenleyerek üyelerinizin finansal karar alma davranışlarını birlikte gözlemlemenizi sağlıyoruz.
+            {t('clubsInfo.description')}
           </p>
 
           {/* Kulüpler İçin Süreç */}
@@ -33,19 +35,19 @@ const ClubsInfoSection = () => {
                 <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <span className="text-primary text-xs font-bold">1</span>
                 </div>
-                <span className="text-muted-foreground">Özel oturum planlıyoruz</span>
+                <span className="text-muted-foreground">{t('clubsInfo.step1')}</span>
               </div>
               <div className="flex items-center gap-2 justify-center">
                 <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <span className="text-primary text-xs font-bold">2</span>
                 </div>
-                <span className="text-muted-foreground">Birlikte kararlar alırsınız</span>
+                <span className="text-muted-foreground">{t('clubsInfo.step2')}</span>
               </div>
               <div className="flex items-center gap-2 justify-center">
                 <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <span className="text-primary text-xs font-bold">3</span>
                 </div>
-                <span className="text-muted-foreground">Sonuçları tartışırsınız</span>
+                <span className="text-muted-foreground">{t('clubsInfo.step3')}</span>
               </div>
             </div>
           </div>
@@ -60,11 +62,11 @@ const ClubsInfoSection = () => {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 flex items-center gap-2 text-lg"
               >
                 <Mail className="w-5 h-5" />
-                Kulüp Olarak Sardes'i Keşfedin
+                {t('clubsInfo.button')}
               </button>
               
               <div className="text-sm text-muted-foreground">
-                veya{" "}
+                {t('clubsInfo.or')}{" "}
                 <a 
                   href="mailto:kulupler@sardes.co" 
                   className="text-primary hover:text-primary/80 underline underline-offset-2"

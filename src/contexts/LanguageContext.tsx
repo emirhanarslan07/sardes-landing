@@ -19,7 +19,7 @@ const translations = {
     'nav.who': 'Kimler İçin?',
     'nav.how': 'Nasıl Çalışır?',
     'nav.faq': 'SSS',
-    'nav.signup': '✨Hemen Başla',
+    'nav.signup': 'Hemen Başla',
     
     // Hero Section
     'hero.badge': 'Davranış Odaklı Analiz',
@@ -36,7 +36,7 @@ const translations = {
     'interest.subtitle': 'Sardes erken aşamada. Bu fikrin kimlerde yankı bulduğunu anlamaya çalışıyoruz.',
     'interest.email': 'E-posta adresin',
     'interest.emailPlaceholder': 'ornek@email.com',
-    'interest.question': 'Sardes\'i hangi açıdan ilginç buldun? (Opsiyonel)',
+    'interest.question': 'Sardes\'i hangi açıdan ilginç buldun? *',
     'interest.option1': 'Davranış analizi yaklaşımı',
     'interest.option2': 'Gerçekçi piyasa senaryoları',
     'interest.option3': 'Kişisel gelişim odağı',
@@ -66,13 +66,13 @@ const translations = {
     // Why Section
     'why.title': 'Gerçek Verilerle Kararınızı Geliştirin',
     'why.subtitle': 'Gerçek Problemler. Gerçek İçgörüler.',
-    'why.risk.title': 'Risk Yaklaşımı',
+    'why.risk.title': 'Riskle İlişkiniz',
     'why.risk.problem': 'Problem',
-    'why.risk.problemText': '"Risk toleransınız var mı?" gibi sorular nadiren gerçek davranışı yansıtır.',
+    'why.risk.problemText': '"Kendinizi ne kadar risk alan biri olarak görüyorsunuz?" gibi sorular, gerçek davranışı yansıtmaz.',
     'why.risk.approach': 'Sardes\'in Yaklaşımı',
-    'why.risk.approachText': 'Gerçekçi piyasa senaryolarında verilen kararlara dayalı risk alma eğiliminizi analiz eder.',
+    'why.risk.approachText': 'Gerçekçi piyasa senaryolarında verilen kararlar üzerinden riskli anlarda nasıl davrandığınızı inceler.',
     'why.risk.provides': 'Ne Sağlar',
-    'why.risk.providesText': 'Riskle ilişkinizin daha net ve gerçekçi bir anlayışı.',
+    'why.risk.providesText': 'Riskle kurduğunuz ilişkinin davranış temelli ve daha net bir görünümü.',
     'why.stress.title': 'Stres Altında Karar Verme',
     'why.stress.problemText': 'Stresin kararları nasıl etkilediğini o anda fark etmek zordur.',
     'why.stress.approachText': 'Zaman baskısı ve belirsizlik içeren senaryolarla karar reflekslerini inceler.',
@@ -119,6 +119,23 @@ const translations = {
     'analysis.strategy': 'Strateji Uyumu',
     'analysis.adaptability': 'Uyum Yeteneği',
     'analysis.note': '* Gösterilen değerler temsilidir. Bunlar performans veya başarı puanları değil, davranışsal eğilimlerin göstergeleridir.',
+    
+    // Why Now Section
+    'whyNow.title': 'Neden <span class="text-primary">Şimdi?</span>',
+    'whyNow.card1': 'Genç yatırımcı sayısı hızla artıyor',
+    'whyNow.card2': 'Finansal kararlar hiç bu kadar hızlı alınmamıştı',
+    'whyNow.card3': 'Ancak kimse nasıl karar verdiğini ölçmüyor',
+    'whyNow.card4': 'Sardes bu boşluğu doldurmak için geliştiriliyor',
+    'whyNow.cta': '→ Erken erişime katıl.',
+    
+    // Clubs Info Section
+    'clubsInfo.title': 'Kulüpler için <span class="text-primary">Sardes</span>',
+    'clubsInfo.description': 'Sardes, gerçek piyasa senaryolarında karar vererek yatırımcı karakterinizi keşfetmenizi sağlayan bir senaryo bazlı deneyim platformudur. Kulübünüz için özel oturumlar düzenleyerek üyelerinizin finansal karar alma davranışlarını birlikte gözlemlemenizi sağlıyoruz.',
+    'clubsInfo.step1': 'Özel oturum planlıyoruz',
+    'clubsInfo.step2': 'Birlikte kararlar alırsınız',
+    'clubsInfo.step3': 'Sonuçları tartışırsınız',
+    'clubsInfo.button': 'Kulüp Olarak Sardes\'i Keşfedin',
+    'clubsInfo.or': 'veya',
     
     // FAQ
     'faq.title': 'Merak Ettikleriniz',
@@ -191,6 +208,7 @@ const translations = {
     // Buttons
     'btn.joinEarlyAccess': 'Erken Erişime Katıl',
     'btn.learnMore': 'Daha Fazla Bilgi',
+    'btn.discoverAsClub': 'Kulüp Olarak Sardes\'i Keşfedin',
     
     // Footer
     'footer.description': 'Finansal karar verme süreçlerinizi analiz eden ve geliştiren yapay zeka destekli platform.\nGerçek davranış verilerine dayalı analiz ile yatırımcı karakterinizi keşfedin.',
@@ -209,7 +227,7 @@ const translations = {
     'nav.who': 'Who For?',
     'nav.how': 'How It Works?',
     'nav.faq': 'FAQ',
-    'nav.signup': '✨Get Started',
+    'nav.signup': 'Get Started',
     
     // Hero Section
     'hero.badge': 'Behavior-Driven Analysis',
@@ -226,13 +244,13 @@ const translations = {
     'interest.subtitle': 'Sardes is in early stage. We\'re trying to understand who resonates with this idea.',
     'interest.email': 'Your email address',
     'interest.emailPlaceholder': 'example@email.com',
-    'interest.question': 'What aspect of Sardes did you find interesting? (Optional)',
+    'interest.question': 'What aspect of Sardes did you find interesting? *',
     'interest.option1': 'Behavioral analysis approach',
     'interest.option2': 'Realistic market scenarios',
     'interest.option3': 'Personal development focus',
     'interest.option4': 'Educational/learning potential',
     'interest.option5': 'Other',
-    'interest.submit': 'Keep me informed',
+    'interest.submit': 'Submit Interest',
     'interest.submitting': 'Submitting...',
     'interest.success': 'Thank you!',
     'interest.successMessage': 'Your interest has been recorded. We\'ll notify you when Sardes is ready.',
@@ -310,6 +328,23 @@ const translations = {
     'analysis.adaptability': 'Adaptability',
     'analysis.note': '* The values shown are representative. They are not performance or success scores, but indicators of behavioral tendencies.',
     
+    // Why Now Section
+    'whyNow.title': 'Why <span class="text-primary">Now?</span>',
+    'whyNow.card1': 'The number of young investors is rapidly increasing',
+    'whyNow.card2': 'Financial decisions have never been made this quickly',
+    'whyNow.card3': 'But no one measures how they make decisions',
+    'whyNow.card4': 'Sardes is being developed to fill this gap',
+    'whyNow.cta': '→ Join early access.',
+    
+    // Clubs Info Section
+    'clubsInfo.title': '<span class="text-primary">Sardes</span> for Clubs',
+    'clubsInfo.description': 'Sardes is a scenario-based experience platform that allows you to discover your investor character by making decisions in real market scenarios. We organize special sessions for your club, enabling you to collectively observe your members\' financial decision-making behaviors.',
+    'clubsInfo.step1': 'We plan a special session',
+    'clubsInfo.step2': 'You make decisions together',
+    'clubsInfo.step3': 'You discuss the results',
+    'clubsInfo.button': 'Discover Sardes as a Club',
+    'clubsInfo.or': 'or',
+    
     // FAQ
     'faq.title': 'What You Wonder',
     
@@ -381,6 +416,7 @@ const translations = {
     // Buttons
     'btn.joinEarlyAccess': 'Join Early Access',
     'btn.learnMore': 'Learn More',
+    'btn.discoverAsClub': 'Discover Sardes as a Club',
     
     // Footer
     'footer.description': 'An AI-powered platform that analyzes and improves your financial decision-making processes.\nDiscover your investor character through analysis based on real behavioral data.',
