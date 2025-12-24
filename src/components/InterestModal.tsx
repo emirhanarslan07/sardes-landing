@@ -61,13 +61,8 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
 
     setIsSubmitting(false);
     
-    // Reset form after 2 seconds and close modal
-    setTimeout(() => {
-      setEmail("");
-      setSelectedInterest("");
-      setIsSuccess(false);
-      onClose();
-    }, 2000);
+    // Show success state - user will close manually
+    setIsSuccess(true);
   };
 
   const handleClose = () => {
