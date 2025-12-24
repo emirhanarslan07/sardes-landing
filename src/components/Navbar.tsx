@@ -9,9 +9,10 @@ const Navbar = () => {
   const { t } = useLanguage();
 
   const navItems = [
+    { label: t('nav.what'), href: "#ne-yapiyor" },
     { label: t('nav.features'), href: "#neden-sardes" },
-    { label: t('nav.clubs'), href: "#kimler-icin" },
-    { label: t('nav.flow'), href: "#nasil-calisir" },
+    { label: t('nav.who'), href: "#kimler-icin" },
+    { label: t('nav.how'), href: "#nasil-calisir" },
     { label: t('nav.faq'), href: "#sss" },
   ];
 

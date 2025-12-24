@@ -14,11 +14,12 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const translations = {
   tr: {
     // Navbar
+    'nav.what': 'Nedir?',
     'nav.features': 'Özellikler',
-    'nav.clubs': 'Kulüpler',
-    'nav.flow': 'Akış',
+    'nav.who': 'Kimler İçin?',
+    'nav.how': 'Nasıl Çalışır?',
     'nav.faq': 'SSS',
-    'nav.signup': 'Kayıt Ol',
+    'nav.signup': '✨Hemen Başla',
     
     // Hero Section
     'hero.badge': 'Davranış Odaklı Analiz',
@@ -181,11 +182,12 @@ const translations = {
   },
   en: {
     // Navbar
+    'nav.what': 'What?',
     'nav.features': 'Features',
-    'nav.clubs': 'Clubs',
-    'nav.flow': 'Flow',
+    'nav.who': 'Who For?',
+    'nav.how': 'How It Works?',
     'nav.faq': 'FAQ',
-    'nav.signup': 'Sign Up',
+    'nav.signup': '✨Get Started',
     
     // Hero Section
     'hero.badge': 'Behavior-Driven Analysis',
