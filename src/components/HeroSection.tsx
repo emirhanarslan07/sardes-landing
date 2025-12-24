@@ -15,7 +15,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative overflow-hidden" style={{ paddingTop: '100px' }}>
+    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative overflow-hidden" style={{ paddingTop: '140px' }}>
 
       {/* Subtle Background Decorations */}
       <div className="absolute top-1/4 left-10 w-20 h-20 rounded-full blur-xl float-element" style={{ background: 'linear-gradient(135deg, rgba(120, 219, 226, 0.1), rgba(59, 130, 246, 0.05))' }}></div>
