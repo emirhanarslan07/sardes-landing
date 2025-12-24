@@ -15,7 +15,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative overflow-hidden" style={{ paddingTop: '120px' }}>
+    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative overflow-hidden" style={{ paddingTop: '80px' }}>
 
       {/* Subtle Background Decorations */}
       <div className="absolute top-1/4 left-10 w-20 h-20 rounded-full blur-xl float-element" style={{ background: 'linear-gradient(135deg, rgba(120, 219, 226, 0.1), rgba(59, 130, 246, 0.05))' }}></div>
@@ -23,8 +23,6 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 left-1/4 w-16 h-16 rounded-full blur-lg float-element" style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.06), rgba(59, 130, 246, 0.03))', animationDelay: '2s' }}></div>
       
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center relative z-10">
-        {/* Spacer for better vertical positioning */}
-        <div className="mt-8 sm:mt-12"></div>
         
         {/* Badge */}
         <div 
@@ -57,7 +55,7 @@ const HeroSection = () => {
         
         {/* Description */}
         <p 
-          className="text-muted-foreground text-base sm:text-lg max-w-3xl mx-auto mb-8 leading-relaxed opacity-0 animate-fade-in-up"
+          className="text-muted-foreground text-base sm:text-lg max-w-3xl mx-auto mb-6 leading-relaxed opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.3s' }}
         >
           {t('hero.description')}
@@ -65,7 +63,7 @@ const HeroSection = () => {
         
         {/* Disclaimer with Icons */}
         <div 
-          className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 mb-12 opacity-0 animate-fade-in-up"
+          className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-8 opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.4s' }}
         >
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -93,7 +91,7 @@ const HeroSection = () => {
         
         {/* CTA Button */}
         <div 
-          className="mt-12 opacity-0 animate-fade-in-up"
+          className="mt-8 opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.5s' }}
         >
           <Button 
