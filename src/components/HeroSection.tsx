@@ -63,49 +63,38 @@ const HeroSection = () => {
           {t('hero.description')}
         </p>
         
-        {/* Disclaimer */}
+        {/* Disclaimer with Icons */}
         <div 
-          className="inline-flex items-center bg-muted/30 backdrop-blur-md border border-border/30 rounded-full px-6 py-3 mb-12 opacity-0 animate-fade-in-up"
+          className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 mb-12 opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.4s' }}
         >
-          <span className="text-muted-foreground text-sm font-medium">
-            {t('hero.disclaimer')}
-          </span>
-        </div>
-        
-        {/* Key Features */}
-        <div 
-          className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 opacity-0 animate-fade-in-up"
-          style={{ animationDelay: '0.5s' }}
-        >
-          <div className="flex items-center gap-2 text-sm text-muted-foreground hero-feature stagger-fade-in">
-            <svg className="w-5 h-5 text-primary transition-all duration-300 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 3v18h18" />
-              <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" />
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <svg className="w-5 h-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.35 0 4.48.9 6.07 2.38" />
             </svg>
-            <span>{t('hero.feature1')}</span>
+            <span>{t('hero.disclaimer1')}</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground hero-feature stagger-fade-in">
-            <svg className="w-5 h-5 text-primary transition-all duration-300 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <circle cx="12" cy="12" r="6" />
-              <circle cx="12" cy="12" r="2" />
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <svg className="w-5 h-5 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.35 0 4.48.9 6.07 2.38" />
             </svg>
-            <span>{t('hero.feature2')}</span>
+            <span>{t('hero.disclaimer2')}</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground hero-feature stagger-fade-in">
-            <svg className="w-5 h-5 text-primary transition-all duration-300 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12,6 12,12 16,14" />
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <svg className="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.35 0 4.48.9 6.07 2.38" />
             </svg>
-            <span>{t('hero.feature3')}</span>
+            <span>{t('hero.disclaimer3')}</span>
           </div>
         </div>
         
         {/* CTA Button */}
         <div 
           className="mt-12 opacity-0 animate-fade-in-up"
-          style={{ animationDelay: '0.7s' }}
+          style={{ animationDelay: '0.5s' }}
         >
           <Button 
             onClick={scrollToEarlyAccess}
