@@ -2248,3 +2248,26 @@ html {
     }
   }
 }
+/* Modal Animations */
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.slide-in-from-bottom-4 {
+  animation: slide-in-from-bottom 0.3s ease-out;
+}
+
+.duration-300 {
+  animation-duration: 300ms;
+}

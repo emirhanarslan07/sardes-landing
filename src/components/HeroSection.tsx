@@ -1,17 +1,27 @@
 
+import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
+import InterestModal from "@/components/InterestModal";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const [isInterestModalOpen, setIsInterestModalOpen] = useState(false);
 
-  const scrollToEarlyAccess = () => {
-    trackCTAClick('Erken Erişime Katıl');
-    const element = document.getElementById('erken-erisim');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleInterestClick = () => {
+    // Track CTA click
+    trackCTAClick('Bu fikri ilginç buluyorum');
+    
+    // Track specific interest modal open event
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'interest_modal_open', {
+        event_category: 'engagement',
+        event_label: 'hero_cta_click'
+      });
     }
+    
+    setIsInterestModalOpen(true);
   };
 
   return (
@@ -95,7 +105,7 @@ const HeroSection = () => {
           style={{ animationDelay: '0.5s' }}
         >
           <Button 
-            onClick={scrollToEarlyAccess}
+            onClick={handleInterestClick}
             size="lg"
             className="text-base font-medium px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl transition-all duration-300 hover:scale-105"
           >
@@ -106,6 +116,12 @@ const HeroSection = () => {
 
 
       </div>
+      
+      {/* Interest Modal */}
+      <InterestModal 
+        isOpen={isInterestModalOpen} 
+        onClose={() => setIsInterestModalOpen(false)} 
+      />
     </section>
   );
 };
