@@ -2,7 +2,6 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { supabase } from "@/lib/supabase";
 
 interface InterestModalProps {
   isOpen: boolean;
@@ -34,50 +33,41 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
     }
 
     setIsSubmitting(true);
-    setError("");
+    setError(""); // Clear any previous errors
+
+    // Track form submission
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'interest_form_submit', {
+        event_category: 'engagement',
+        event_label: 'hero_interest_modal'
+      });
+    }
+
+    // Fire-and-forget Google Forms submission
+    const formData = new FormData();
+    formData.append('entry.1127680425', email.trim()); // Email field
+    formData.append('entry.722175045', selectedInterest || ''); // Interest reason field
 
     try {
-      // Track form submission
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'interest_form_submit', {
-          event_category: 'engagement',
-          event_label: 'hero_interest_modal'
-        });
-      }
-
-      const { error: supabaseError } = await supabase
-        .from('interest_submissions')
-        .insert([
-          {
-            email: email.trim(),
-            interest_reason: selectedInterest || null,
-            source: 'hero_modal',
-            created_at: new Date().toISOString()
-          }
-        ]);
-
-      if (supabaseError) {
-        console.error('Supabase error:', supabaseError);
-        setError(t('interest.error'));
-        return;
-      }
-
+      fetch('https://docs.google.com/forms/d/e/1FAIpQLSceiMHx4SoroEwU3db9w1Avk0X-iSTDxMKfKnKv41aPq2a0uw/formResponse', {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
       setIsSuccess(true);
-      
-      // Reset form after 2 seconds and close modal
-      setTimeout(() => {
-        setEmail("");
-        setSelectedInterest("");
-        setIsSuccess(false);
-        onClose();
-      }, 2000);
-
-    } catch (err) {
-      console.error('Error submitting interest:', err);
-      setError(t('interest.error'));
-    } finally {
-      setIsSubmitting(false);
+    } catch {
+      setIsSuccess(true); // Always show success for no-cors Google Forms
     }
+
+    setIsSubmitting(false);
+    
+    // Reset form after 2 seconds and close modal
+    setTimeout(() => {
+      setEmail("");
+      setSelectedInterest("");
+      setIsSuccess(false);
+      onClose();
+    }, 2000);
   };
 
   const handleClose = () => {
