@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 
-// Global event emitter for waitlist updates
-class WaitlistEventEmitter {
+// Global event emitter for interest updates
+class InterestEventEmitter {
   private listeners: (() => void)[] = [];
 
   subscribe(callback: () => void) {
@@ -17,7 +17,7 @@ class WaitlistEventEmitter {
   }
 }
 
-export const waitlistEmitter = new WaitlistEventEmitter();
+export const interestEmitter = new InterestEventEmitter();
 
 export const useWaitlistCount = () => {
   const [count, setCount] = useState(360); // Base count
@@ -26,18 +26,18 @@ export const useWaitlistCount = () => {
   const fetchCount = async () => {
     try {
       const { count: realCount, error } = await supabase
-        .from('waitlist')
+        .from('interest_submissions')
         .select('*', { count: 'exact', head: true });
 
       if (error) {
-        console.error('Waitlist count fetch error:', error);
+        console.error('Interest count fetch error:', error);
         setCount(360);
       } else {
         // Base count (360) + real signups
         setCount(360 + (realCount || 0));
       }
     } catch (error) {
-      console.error('Waitlist count error:', error);
+      console.error('Interest count error:', error);
       setCount(360);
     } finally {
       setIsLoading(false);
@@ -47,8 +47,8 @@ export const useWaitlistCount = () => {
   useEffect(() => {
     fetchCount();
 
-    // Listen for waitlist updates
-    const unsubscribe = waitlistEmitter.subscribe(fetchCount);
+    // Listen for interest updates
+    const unsubscribe = interestEmitter.subscribe(fetchCount);
 
     // Periodic refresh every 30 seconds
     const interval = setInterval(fetchCount, 30000);

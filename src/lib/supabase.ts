@@ -19,14 +19,15 @@ export interface WaitlistEntry {
   user_type?: string;
 }
 
-export interface ClubInquiry {
+export interface ClubApplication {
   club_name: string;
   university: string;
-  contact_name: string;
   email: string;
-  member_count?: string;
-  linkedin_profile?: string;
-  message?: string;
+}
+
+export interface InterestSubmission {
+  email: string;
+  interest_reason: string; // Now required
 }
 
 // Waitlist function
@@ -60,13 +61,13 @@ export async function addToWaitlist(data: WaitlistEntry) {
   }
 }
 
-// Club inquiry function
-export async function submitClubInquiry(data: ClubInquiry) {
+// Club application function
+export async function submitClubApplication(data: ClubApplication) {
   try {
-    console.log('Submitting club inquiry:', data);
+    console.log('Submitting club application:', data);
     
     const { data: result, error } = await supabase
-      .from('club_inquiries')
+      .from('club_applications')
       .insert([data])
       .select();
 
@@ -75,10 +76,41 @@ export async function submitClubInquiry(data: ClubInquiry) {
       throw new Error('Başvuru gönderilirken hata oluştu. Lütfen tekrar deneyin.');
     }
 
-    console.log('Club inquiry success:', result);
+    console.log('Club application success:', result);
     return { success: true, data: result };
   } catch (error) {
-    console.error('Club inquiry error:', error);
+    console.error('Club application error:', error);
+    throw error;
+  }
+}
+
+// Interest submission function
+export async function submitInterest(data: InterestSubmission) {
+  try {
+    console.log('Submitting interest:', data);
+    
+    const { data: result, error } = await supabase
+      .from('interest_submissions')
+      .insert([{
+        email: data.email,
+        interest_reason: data.interest_reason, // Now required
+      }])
+      .select();
+
+    if (error) {
+      console.error('Supabase error:', error);
+      
+      if (error.code === '23505') {
+        throw new Error('Bu email adresi zaten kayıtlı.');
+      }
+      
+      throw new Error('İlgi kaydı sırasında hata oluştu. Lütfen tekrar deneyin.');
+    }
+
+    console.log('Interest submission success:', result);
+    return { success: true, data: result };
+  } catch (error) {
+    console.error('Interest submission error:', error);
     throw error;
   }
 }

@@ -3,34 +3,15 @@ import { Button } from "@/components/ui/button";
 import { User, Users, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackCTAClick } from "@/lib/analytics";
-import InterestModal from "./InterestModal";
-import { useState } from "react";
 
 const WhoIsItForSection = () => {
   const { t } = useLanguage();
-  const [isInterestModalOpen, setIsInterestModalOpen] = useState(false);
 
   const handleCTAClick = (buttonName: string) => {
     trackCTAClick(buttonName);
   };
 
-  const handleInterestClick = (buttonName: string) => {
-    // Track CTA click
-    trackCTAClick(buttonName);
-    
-    // Track specific interest modal open event
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'interest_modal_open', {
-        event_category: 'engagement',
-        event_label: 'who_section_click'
-      });
-    }
-    
-    setIsInterestModalOpen(true);
-  };
-
-  const scrollToEarlyAccess = () => {
-    handleCTAClick('Erken Erişime Katıl');
+  const scrollToFinalCTA = () => {
     const element = document.getElementById('erken-erisim');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -87,8 +68,11 @@ const WhoIsItForSection = () => {
             {/* CTA Button for Individual Users */}
             <div className="mt-6">
               <Button 
-                onClick={() => handleInterestClick('Erken Erişime Katıl')}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => {
+                  handleCTAClick('Erken Erişime Katıl');
+                  scrollToFinalCTA();
+                }}
+                className="w-full btn-badge-modern"
               >
                 Erken Erişime Katıl
               </Button>
@@ -132,8 +116,11 @@ const WhoIsItForSection = () => {
             {/* CTA Button for Clubs */}
             <div className="mt-6">
               <Button 
-                onClick={() => handleInterestClick('Kulüp Olarak Sardes\'i Keşfedin')}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => {
+                  handleCTAClick('Kulüp Olarak Sardes\'i Keşfedin');
+                  scrollToFinalCTA();
+                }}
+                className="w-full btn-badge-modern"
               >
                 Kulüp Olarak Sardes'i Keşfedin
               </Button>
@@ -141,12 +128,6 @@ const WhoIsItForSection = () => {
           </Card>
         </div>
       </div>
-      
-      {/* Interest Modal */}
-      <InterestModal 
-        isOpen={isInterestModalOpen} 
-        onClose={() => setIsInterestModalOpen(false)} 
-      />
     </section>
   );
 };

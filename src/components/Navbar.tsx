@@ -95,7 +95,7 @@ const Navbar = () => {
             <Button 
               size="sm" 
               onClick={() => handleNavClick("#erken-erisim")}
-              className="ml-1 text-sm font-medium btn-ripple"
+              className="ml-1 text-sm font-medium btn-badge-modern"
             >
               {t('nav.signup')}
             </Button>
@@ -140,7 +140,7 @@ const Navbar = () => {
               <Button 
                 size="sm" 
                 onClick={() => handleNavClick("#erken-erisim")}
-                className="w-full text-sm font-medium"
+                className="w-full text-sm font-medium btn-badge-modern"
               >
                 {t('nav.signup')}
               </Button>

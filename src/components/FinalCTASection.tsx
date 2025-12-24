@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import WaitlistForm from "./WaitlistForm";
 import ClubApplicationForm from "./ClubApplicationForm";
 import InterestModal from "./InterestModal";
 import { useState } from "react";
@@ -10,7 +9,6 @@ import { Link } from "react-router-dom";
 
 const FinalCTASection = () => {
   const { t } = useLanguage();
-  const [showForm, setShowForm] = useState(false);
   const [showClubForm, setShowClubForm] = useState(false);
   const [isInterestModalOpen, setIsInterestModalOpen] = useState(false);
 
@@ -76,33 +74,27 @@ const FinalCTASection = () => {
           
           {/* CTA Section */}
           <div className="max-w-md mx-auto">
-            {!showForm ? (
-              <>
-                <Button 
-                  size="lg" 
-                  onClick={handleInterestClick}
-                  className="text-base font-medium px-10 py-4 mb-6 btn-cta btn-ripple interactive-btn pulse-glow text-white rounded-xl"
-                >
-                  {t('cta.button')}
-                </Button>
-                
-                {/* Club Registration Option */}
-                <div className="mb-6">
-                  <p className="text-sm text-muted-foreground mb-2">
-                    {t('cta.clubs')}
-                  </p>
-                  <Link 
-                    to="/clubs"
-                    onClick={() => handleCTAClick('Kulüp Olarak Sardes\'i Keşfedin')}
-                    className="text-primary hover:text-primary/80 text-sm font-medium underline underline-offset-4 transition-colors"
-                  >
-                    {t('cta.clubsLink')}
-                  </Link>
-                </div>
-              </>
-            ) : (
-              <WaitlistForm onBack={() => setShowForm(false)} />
-            )}
+            <Button 
+              size="lg" 
+              onClick={handleInterestClick}
+              className="text-base font-medium px-10 py-4 mb-6 rounded-xl btn-badge-modern"
+            >
+              {t('cta.button')}
+            </Button>
+            
+            {/* Club Registration Option */}
+            <div className="mb-6">
+              <p className="text-sm text-muted-foreground mb-2">
+                {t('cta.clubs')}
+              </p>
+              <Link 
+                to="/clubs"
+                onClick={() => handleCTAClick('Kulüp Olarak Sardes\'i Keşfedin')}
+                className="text-primary hover:text-primary/80 text-sm font-medium underline underline-offset-4 transition-colors"
+              >
+                {t('cta.clubsLink')}
+              </Link>
+            </div>
           </div>
           </div>
         </div>

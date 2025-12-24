@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { submitInterest } from "@/lib/supabase";
+import { interestEmitter } from "@/hooks/useWaitlistCount";
 
 interface InterestModalProps {
   isOpen: boolean;
@@ -9,7 +10,6 @@ interface InterestModalProps {
 }
 
 const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
-  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [selectedInterest, setSelectedInterest] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,11 +17,11 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
   const [error, setError] = useState("");
 
   const interestOptions = [
-    { value: 'behavioral_analysis', label: t('interest.option1') },
-    { value: 'realistic_scenarios', label: t('interest.option2') },
-    { value: 'personal_development', label: t('interest.option3') },
-    { value: 'educational_potential', label: t('interest.option4') },
-    { value: 'other', label: t('interest.option5') },
+    { value: 'behavioral_analysis', label: 'Davranış analizi yaklaşımı' },
+    { value: 'realistic_scenarios', label: 'Gerçekçi piyasa senaryoları' },
+    { value: 'self_awareness', label: 'Kişisel gelişim odağı' },
+    { value: 'educational_potential', label: 'Eğitim/öğrenme potansiyeli' },
+    { value: 'exploring', label: 'Diğer' },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,8 +32,13 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
       return;
     }
 
+    if (!selectedInterest) {
+      setError('Lütfen bir seçenek seçin');
+      return;
+    }
+
     setIsSubmitting(true);
-    setError(""); // Clear any previous errors
+    setError("");
 
     // Track form submission
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -43,26 +48,28 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
       });
     }
 
-    // Fire-and-forget Google Forms submission
-    const formData = new FormData();
-    formData.append('entry.1127680425', email.trim()); // Email field
-    formData.append('entry.722175045', selectedInterest || ''); // Interest reason field
-
     try {
-      fetch('https://docs.google.com/forms/d/e/1FAIpQLSceiMHx4SoroEwU3db9w1Avk0X-iSTDxMKfKnKv41aPq2a0uw/formResponse', {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors'
+      console.log('Form data being submitted:', {
+        email: email.trim(),
+        interest_reason: selectedInterest
       });
+      
+      const result = await submitInterest({
+        email: email.trim(),
+        interest_reason: selectedInterest
+      });
+      
+      console.log('Submission result:', result);
       setIsSuccess(true);
-    } catch {
-      setIsSuccess(true); // Always show success for no-cors Google Forms
+      
+      // Emit event to update counter
+      interestEmitter.emit();
+    } catch (error) {
+      console.error('Interest submission error:', error);
+      setError(error instanceof Error ? error.message : 'Bir hata oluştu. Lütfen tekrar deneyin.');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
-    
-    // Show success state - user will close manually
-    setIsSuccess(true);
   };
 
   const handleClose = () => {
@@ -97,16 +104,16 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
           // Success State
           <div className="text-center py-4">
             <div className="text-4xl mb-4">🎉</div>
-            <h3 className="text-xl font-bold mb-2">{t('interest.success')}</h3>
-            <p className="text-muted-foreground">{t('interest.successMessage')}</p>
+            <h3 className="text-xl font-bold mb-2">Teşekkürler!</h3>
+            <p className="text-muted-foreground">İlgin kaydedildi. Gelişmelerden haberdar olacaksın.</p>
           </div>
         ) : (
           // Form State
           <>
             <div className="text-center mb-6">
-              <h3 className="text-xl font-bold mb-2">{t('interest.title')}</h3>
+              <h3 className="text-xl font-bold mb-2">İlgin için teşekkürler 🙌</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                {t('interest.subtitle')}
+                Sardes erken aşamada. Bu fikrin kimlerde yankı bulduğunu anlamaya çalışıyoruz.
               </p>
             </div>
 
@@ -114,14 +121,14 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
               {/* Email Input */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  {t('interest.email')} *
+                  E-posta adresin *
                 </label>
                 <input
                   type="email"
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder={t('interest.emailPlaceholder')}
+                  placeholder="ornek@email.com"
                   className="w-full px-3 py-2 bg-background/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                   required
                 />
@@ -130,7 +137,7 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
               {/* Interest Options */}
               <div>
                 <label className="block text-sm font-medium mb-3">
-                  {t('interest.question')}
+                  Sardes'i hangi açıdan ilginç buldun? *
                 </label>
                 <div className="space-y-2">
                   {interestOptions.map((option) => (
@@ -142,6 +149,7 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
                         checked={selectedInterest === option.value}
                         onChange={(e) => setSelectedInterest(e.target.value)}
                         className="text-primary focus:ring-primary/50"
+                        required
                       />
                       <span className="text-sm">{option.label}</span>
                     </label>
@@ -160,9 +168,9 @@ const InterestModal = ({ isOpen, onClose }: InterestModalProps) => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="w-full btn-badge-modern"
               >
-                {isSubmitting ? t('interest.submitting') : t('interest.submit')}
+                {isSubmitting ? 'Gönderiliyor...' : 'İlgi Kaydı Yap'}
               </Button>
             </form>
           </>

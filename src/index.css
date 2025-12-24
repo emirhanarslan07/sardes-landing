@@ -34,9 +34,9 @@
     --popover: 215 25% 11%;
     --popover-foreground: 210 40% 98%;
 
-    /* Turkuaz Vurgu */
-    --primary: 173 80% 50%;        /* #2DD4BF - Ana vurgu */
-    --primary-foreground: 210 100% 6%;
+    /* Turkuaz Vurgu - Geri Döndü */
+    --primary: 173 80% 50%;        /* #2DD4BF - Turkuaz */
+    --primary-foreground: 210 100% 98%;
 
     --secondary: 215 25% 11%;
     --secondary-foreground: 210 40% 98%;
@@ -44,8 +44,8 @@
     --muted: 215 25% 11%;
     --muted-foreground: 215 16% 65%; /* #94A3B8 - İkincil metin */
 
-    --accent: 173 80% 50%;         /* #2DD4BF */
-    --accent-foreground: 210 100% 6%;
+    --accent: 173 80% 50%;         /* #2DD4BF - Turkuaz */
+    --accent-foreground: 210 100% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
@@ -2270,4 +2270,54 @@ html {
 
 .duration-300 {
   animation-duration: 300ms;
+}
+/* Modern Badge Button - Turkuaz */
+@layer components {
+  .btn-badge-modern {
+    @apply relative overflow-hidden backdrop-blur-sm;
+    background: linear-gradient(135deg, #2DD4BF, #14B8A6);
+    border: none;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+      0 4px 15px rgba(45, 212, 191, 0.3),
+      0 2px 8px rgba(45, 212, 191, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .btn-badge-modern:hover {
+    background: linear-gradient(135deg, #14B8A6, #0D9488);
+    color: white;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      0 8px 25px rgba(45, 212, 191, 0.4),
+      0 4px 15px rgba(45, 212, 191, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-badge-modern:active {
+    transform: translateY(-1px) scale(1.01);
+  }
+  
+  .btn-badge-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .btn-badge-modern:hover::before {
+    left: 100%;
+  }
+  
+  .btn-badge-modern:disabled {
+    background: linear-gradient(135deg, #666, #555);
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: not-allowed;
+  }
 }

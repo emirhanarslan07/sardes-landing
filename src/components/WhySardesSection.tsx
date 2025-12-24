@@ -17,11 +17,11 @@ const WhySardesSection = () => {
             {t('what.subtitle')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
-            <Card className="bg-card/30 backdrop-blur-md border-border/30 p-6 sm:p-8 text-center relative overflow-hidden group hover:border-primary/50 transition-all duration-300 card-hover card-hover-blue interactive">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-blue-500/20 transition-colors duration-300">
-                <Target className="w-7 h-7 text-primary transition-all duration-300 icon-hover-blue" />
+            <Card className="bg-card/30 backdrop-blur-md border-border/30 p-6 sm:p-8 text-center relative overflow-hidden group hover:border-primary/50 transition-all duration-300 card-hover interactive">
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 transition-colors duration-300">
+                <Target className="w-7 h-7 text-primary transition-all duration-300" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 group-hover:text-accent-blue transition-colors duration-300">{t('what.card1.title')}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">{t('what.card1.title')}</h3>
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                 {t('what.card1.desc')}
               </p>
