@@ -11,7 +11,7 @@ const HeroSection = () => {
 
   const handleInterestClick = () => {
     // Track CTA click
-    trackCTAClick('Bu fikri ilginç buluyorum');
+    trackCTAClick(t('hero.cta'));
     
     // Track specific interest modal open event
     if (typeof window !== 'undefined' && (window as any).gtag) {

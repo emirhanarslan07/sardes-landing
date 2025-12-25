@@ -5,7 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { addToWaitlist } from '@/lib/supabase';
 import { trackWaitlistSignup, trackCTAClick } from '@/lib/analytics';
-import { waitlistEmitter } from '@/hooks/useWaitlistCount';
+import { interestEmitter } from '@/hooks/useWaitlistCount';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FormData {
@@ -55,7 +55,7 @@ export const WaitlistForm: React.FC<WaitlistFormProps> = ({ onBack }) => {
     }
 
     // Track form submission attempt
-    trackCTAClick('Kayıt Ol');
+    trackCTAClick(t('form.submit'));
 
     setIsSubmitting(true);
     setError(null);
@@ -68,7 +68,7 @@ export const WaitlistForm: React.FC<WaitlistFormProps> = ({ onBack }) => {
       trackWaitlistSignup(formData.email);
       
       // Update live counter
-      waitlistEmitter.emit();
+      interestEmitter.emit();
       
       setIsSubmitted(true);
     } catch (error) {
