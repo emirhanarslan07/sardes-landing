@@ -29,7 +29,7 @@ const translations = {
     'hero.disclaimer1': 'Gerçek para yok',
     'hero.disclaimer2': 'Finansal tavsiye yok',
     'hero.disclaimer3': 'Sadece davranış analizi',
-    'hero.cta': 'Bu fikri ilginç buluyorum',
+    'hero.cta': 'Karar Davranışını Keşfet',
     
     // Interest Modal
     'interest.title': 'İlgin için teşekkürler 🙌',
@@ -208,7 +208,7 @@ const translations = {
     // Buttons
     'btn.joinEarlyAccess': 'Erken Erişime Katıl',
     'btn.learnMore': 'Daha Fazla Bilgi',
-    'btn.discoverAsClub': 'Kulüp Olarak Sardes\'i Keşfedin',
+    'btn.discoverAsClub': 'Kulüpler için Sardes',
     
     // Footer
     'footer.description': 'Finansal karar verme süreçlerinizi analiz eden ve geliştiren yapay zeka destekli platform.\nGerçek davranış verilerine dayalı analiz ile yatırımcı karakterinizi keşfedin.',
@@ -237,7 +237,7 @@ const translations = {
     'hero.disclaimer1': 'No real money',
     'hero.disclaimer2': 'No financial advice',
     'hero.disclaimer3': 'Only behavioral analysis',
-    'hero.cta': 'I find this idea interesting',
+    'hero.cta': 'Discover Decision Behavior',
     
     // Interest Modal
     'interest.title': 'Thanks for your interest 🙌',
@@ -416,7 +416,7 @@ const translations = {
     // Buttons
     'btn.joinEarlyAccess': 'Join Early Access',
     'btn.learnMore': 'Learn More',
-    'btn.discoverAsClub': 'Discover Sardes as a Club',
+    'btn.discoverAsClub': 'Sardes for Clubs',
     
     // Footer
     'footer.description': 'An AI-powered platform that analyzes and improves your financial decision-making processes.\nDiscover your investor character through analysis based on real behavioral data.',
