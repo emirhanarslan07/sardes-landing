@@ -38,7 +38,7 @@ const InterestModal = ({ isOpen, onClose, type = 'individual' }: InterestModalPr
     }
 
     if (type === 'individual' && !selectedInterest) {
-      setError(t('interest.error'));
+      setError(t('interest.errorRequired'));
       return;
     }
 
@@ -66,34 +66,19 @@ const InterestModal = ({ isOpen, onClose, type = 'individual' }: InterestModalPr
 
     try {
       if (type === 'individual') {
-        console.log('Form data being submitted:', {
-          email: email.trim(),
-          interest_reason: selectedInterest
-        });
-        
         const result = await submitInterest({
           email: email.trim(),
           interest_reason: selectedInterest
         });
         
-        console.log('Submission result:', result);
-        
         // Emit event to update counter
         interestEmitter.emit();
       } else {
-        console.log('Club application being submitted:', {
-          club_name: clubName.trim(),
-          university: university.trim(),
-          email: email.trim()
-        });
-        
         const result = await submitClubApplication({
           club_name: clubName.trim(),
           university: university.trim(),
           email: email.trim()
         });
-        
-        console.log('Club application result:', result);
       }
       
       setIsSuccess(true);
