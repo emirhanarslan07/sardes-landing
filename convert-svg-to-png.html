@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG to PNG Converter</title>
+</head>
+<body>
+    <h2>SVG to PNG Converter</h2>
+    
+    <canvas id="canvas192" width="192" height="192" style="border: 1px solid #ccc; margin: 10px;"></canvas>
+    <canvas id="canvas512" width="512" height="512" style="border: 1px solid #ccc; margin: 10px;"></canvas>
+    
+    <br>
+    <button onclick="downloadPNG(192)">192x192 PNG İndir</button>
+    <button onclick="downloadPNG(512)">512x512 PNG İndir</button>
+    
+    <script>
+        function createPWAIcon(size) {
+            const canvas = document.getElementById(`canvas${size}`);
+            const ctx = canvas.getContext('2d');
+            
+            // Siyah arka plan
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillRect(0, 0, size, size);
+            
+            // Logo çiz
+            const scale = size / 32; // 32 orijinal SVG boyutu
+            const offsetX = (size - 32 * scale) / 2;
+            const offsetY = (size - 32 * scale) / 2;
+            
+            ctx.fillStyle = '#2DD4BF';
+            
+            // Sol üst köşe
+            ctx.fillRect(offsetX + 2*scale, offsetY + 2*scale, 12*scale, 8*scale);
+            
+            // Sağ üst köşe  
+            ctx.fillRect(offsetX + 18*scale, offsetY + 2*scale, 12*scale, 8*scale);
+            
+            // Sol alt köşe
+            ctx.fillRect(offsetX + 2*scale, offsetY + 22*scale, 12*scale, 8*scale);
+            
+            // Sağ alt köşe
+            ctx.fillRect(offsetX + 18*scale, offsetY + 22*scale, 12*scale, 8*scale);
+            
+            // Orta bağlantı - yatay
+            ctx.fillRect(offsetX + 6*scale, offsetY + 12*scale, 20*scale, 8*scale);
+            
+            // Orta bağlantı - dikey sol
+            ctx.fillRect(offsetX + 10*scale, offsetY + 10*scale, 4*scale, 12*scale);
+            
+            // Orta bağlantı - dikey sağ
+            ctx.fillRect(offsetX + 18*scale, offsetY + 10*scale, 4*scale, 12*scale);
+        }
+        
+        function downloadPNG(size) {
+            const canvas = document.getElementById(`canvas${size}`);
+            const link = document.createElement('a');
+            link.download = `icon-${size}x${size}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Icons oluştur
+        createPWAIcon(192);
+        createPWAIcon(512);
+    </script>
+</body>
+</html>

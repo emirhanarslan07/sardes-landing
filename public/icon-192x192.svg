@@ -1,0 +1,28 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Siyah arka plan -->
+  <rect width="192" height="192" fill="#1a1a1a"/>
+  
+  <!-- Sardes Logo - Merkezi ve büyütülmüş -->
+  <g transform="translate(48, 48) scale(3)" fill="#2DD4BF">
+    <!-- Sol üst köşe -->
+    <rect x="2" y="2" width="12" height="8" rx="2"/>
+    
+    <!-- Sağ üst köşe -->
+    <rect x="18" y="2" width="12" height="8" rx="2"/>
+    
+    <!-- Sol alt köşe -->  
+    <rect x="2" y="22" width="12" height="8" rx="2"/>
+    
+    <!-- Sağ alt köşe -->
+    <rect x="18" y="22" width="12" height="8" rx="2"/>
+    
+    <!-- Orta bağlantı - yatay -->
+    <rect x="6" y="12" width="20" height="8" rx="2"/>
+    
+    <!-- Orta bağlantı - dikey sol -->
+    <rect x="10" y="10" width="4" height="12" rx="1"/>
+    
+    <!-- Orta bağlantı - dikey sağ -->
+    <rect x="18" y="10" width="4" height="12" rx="1"/>
+  </g>
+</svg>
