@@ -36,4 +36,7 @@ npm run build
 
 ## 📄 Lisans
 
-© 2024 Sardes. Tüm hakları saklıdır.
+© 2025 Sardes. Tüm hakları saklıdır.
+
+---
+*Son güncelleme: 26 Aralık 2025*
