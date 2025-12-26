@@ -102,7 +102,6 @@ const Navbar = () => {
                 onClick={() => handleNavClick("#erken-erisim")}
                 className="ml-1 text-sm font-medium btn-badge-modern flex items-center gap-1.5"
               >
-                <span>⚡</span>
                 {t('nav.signup')}
               </Button>
             </div>
@@ -114,7 +113,6 @@ const Navbar = () => {
                 onClick={() => handleNavClick("#erken-erisim")}
                 className="text-xs px-2 py-1.5 btn-badge-modern flex items-center gap-1"
               >
-                <span>⚡</span>
                 <span>{t('nav.signup')}</span>
               </Button>
               <button
