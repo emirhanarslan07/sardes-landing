@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 interface LegalModalProps {
   isOpen: boolean;
-  type: 'privacy' | 'terms' | 'cookies' | null;
+  type: 'privacy' | 'terms' | 'cookies' | 'faq' | null;
   onClose: () => void;
 }
 
@@ -59,6 +59,34 @@ const LegalModal = ({ isOpen, type, onClose }: LegalModalProps) => {
         
         <p>This information is not personal, is not used to identify you, and is only evaluated for the purpose of improving the experience.</p>
       `
+    },
+    faq: {
+      title: language === 'tr' ? "Sıkça Sorulan Sorular" : "Frequently Asked Questions",
+      content: language === 'tr' ? `
+        <h3>Sardes nedir?</h3>
+        <p>Sardes, finansal karar verme davranışlarınızı anlamanıza yardımcı olan simülasyon temelli bir platformdur.</p>
+        
+        <h3>Gerçek para kullanılıyor mu?</h3>
+        <p>Hayır, Sardes tamamen simülasyon tabanlıdır. Gerçek para kullanılmaz.</p>
+        
+        <h3>Finansal tavsiye veriyor mu?</h3>
+        <p>Hayır, Sardes finansal tavsiye vermez. Amacı davranışlarınızı anlamanıza yardımcı olmaktır.</p>
+        
+        <h3>Nasıl çalışır?</h3>
+        <p>Gerçek piyasa senaryolarında karar vererek yatırımcı karakterinizi keşfedersiniz.</p>
+      ` : `
+        <h3>What is Sardes?</h3>
+        <p>Sardes is a simulation-based platform that helps you understand your financial decision-making behaviors.</p>
+        
+        <h3>Is real money used?</h3>
+        <p>No, Sardes is completely simulation-based. No real money is used.</p>
+        
+        <h3>Does it provide financial advice?</h3>
+        <p>No, Sardes does not provide financial advice. Its purpose is to help you understand your behaviors.</p>
+        
+        <h3>How does it work?</h3>
+        <p>You discover your investor character by making decisions in real market scenarios.</p>
+      `
     }
   };
 
@@ -88,6 +116,17 @@ const LegalModal = ({ isOpen, type, onClose }: LegalModalProps) => {
               color: 'hsl(var(--muted-foreground))',
             }}
           />
+          <style jsx>{`
+            .prose h3 {
+              color: hsl(var(--foreground));
+              font-weight: 600;
+              margin-top: 1.5rem;
+              margin-bottom: 0.5rem;
+            }
+            .prose h3:first-child {
+              margin-top: 0;
+            }
+          `}</style>
         </div>
         
         <div className="p-6 border-t border-border/30">
@@ -104,13 +143,13 @@ const Footer = () => {
   const { t } = useLanguage();
   const [legalModal, setLegalModal] = useState<{
     isOpen: boolean;
-    type: 'privacy' | 'terms' | 'cookies' | null;
+    type: 'privacy' | 'terms' | 'cookies' | 'faq' | null;
   }>({
     isOpen: false,
     type: null
   });
 
-  const openLegalModal = (type: 'privacy' | 'terms' | 'cookies') => {
+  const openLegalModal = (type: 'privacy' | 'terms' | 'cookies' | 'faq') => {
     setLegalModal({ isOpen: true, type });
   };
 
@@ -180,24 +219,24 @@ const Footer = () => {
             <div className="lg:col-span-4 lg:pl-12">
               <h4 className="font-semibold text-sm mb-4">{t('footer.legal')}</h4>
               <div className="space-y-2">
-                <Link 
-                  to="/privacy-policy"
+                <button 
+                  onClick={() => openLegalModal('privacy')}
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"
                 >
                   {t('footer.privacy')}
-                </Link>
-                <Link 
-                  to="/terms"
+                </button>
+                <button 
+                  onClick={() => openLegalModal('terms')}
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"
                 >
                   {t('footer.terms')}
-                </Link>
-                <Link 
-                  to="/faq"
+                </button>
+                <button 
+                  onClick={() => openLegalModal('faq')}
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"
                 >
                   SSS
-                </Link>
+                </button>
                 <button 
                   onClick={() => openLegalModal('cookies')}
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors text-left"
