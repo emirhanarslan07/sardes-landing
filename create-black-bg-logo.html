@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Siyah Arka Planlı Logo Oluşturucu</title>
+</head>
+<body>
+    <h2>Sardes Logo - Siyah Arka Plan</h2>
+    
+    <canvas id="canvas" width="1200" height="630" style="border: 1px solid #ccc;"></canvas>
+    <br><br>
+    <button onclick="downloadLogo()">1200x630 Logo İndir</button>
+    
+    <script>
+        function createLogo() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Siyah arka plan
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillRect(0, 0, 1200, 630);
+            
+            // Logo merkezi
+            const centerX = 600;
+            const centerY = 315;
+            const scale = 15; // Büyütme faktörü
+            
+            // Sardes Logo çiz (orijinal SVG'den uyarlandı)
+            ctx.fillStyle = '#2DD4BF';
+            
+            // Sol üst köşe
+            ctx.fillRect(centerX - 15*scale + 2*scale, centerY - 8*scale + 2*scale, 12*scale, 8*scale);
+            
+            // Sağ üst köşe  
+            ctx.fillRect(centerX - 15*scale + 18*scale, centerY - 8*scale + 2*scale, 12*scale, 8*scale);
+            
+            // Sol alt köşe
+            ctx.fillRect(centerX - 15*scale + 2*scale, centerY - 8*scale + 22*scale, 12*scale, 8*scale);
+            
+            // Sağ alt köşe
+            ctx.fillRect(centerX - 15*scale + 18*scale, centerY - 8*scale + 22*scale, 12*scale, 8*scale);
+            
+            // Orta bağlantı - yatay
+            ctx.fillRect(centerX - 15*scale + 6*scale, centerY - 8*scale + 12*scale, 20*scale, 8*scale);
+            
+            // Orta bağlantı - dikey sol
+            ctx.fillRect(centerX - 15*scale + 10*scale, centerY - 8*scale + 10*scale, 4*scale, 12*scale);
+            
+            // Orta bağlantı - dikey sağ
+            ctx.fillRect(centerX - 15*scale + 18*scale, centerY - 8*scale + 10*scale, 4*scale, 12*scale);
+            
+            // Sardes yazısı
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 80px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Sardes', centerX, centerY + 120);
+        }
+        
+        function downloadLogo() {
+            const canvas = document.getElementById('canvas');
+            const link = document.createElement('a');
+            link.download = 'sardes-logo-black-bg-1200x630.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Logo oluştur
+        createLogo();
+    </script>
+</body>
+</html>
