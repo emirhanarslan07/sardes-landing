@@ -10,6 +10,7 @@
     <button onclick="listTables()">List Tables</button>
     <button onclick="testWaitlist()">Test Waitlist Insert</button>
     <button onclick="testInterest()">Test Interest Insert</button>
+    <button onclick="checkData()">Check Existing Data</button>
     <div id="output"></div>
 
     <script>
@@ -19,7 +20,8 @@
         const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
         
         function log(message) {
-            document.getElementById('output').innerHTML += '<p>' + JSON.stringify(message, null, 2) + '</p>';
+            const output = document.getElementById('output');
+            output.innerHTML += '<div style="border: 1px solid #ccc; padding: 10px; margin: 5px 0;"><pre>' + JSON.stringify(message, null, 2) + '</pre></div>';
         }
         
         async function testConnection() {
@@ -38,7 +40,7 @@
                 for (const table of tables) {
                     try {
                         const { data, error } = await supabase.from(table).select('*').limit(1);
-                        log({ table, exists: !error, error: error?.message });
+                        log({ table, exists: !error, error: error?.message, sampleData: data });
                     } catch (err) {
                         log({ table, exists: false, error: err.message });
                     }
@@ -52,7 +54,7 @@
             try {
                 const { data, error } = await supabase
                     .from('waitlist')
-                    .insert([{ email: 'test@example.com', user_type: 'student' }])
+                    .insert([{ email: 'test-waitlist@example.com', user_type: 'student' }])
                     .select();
                 log({ waitlist_insert: { data, error } });
             } catch (err) {
@@ -62,13 +64,27 @@
         
         async function testInterest() {
             try {
+                const testEmail = 'test-interest-' + Date.now() + '@example.com';
                 const { data, error } = await supabase
                     .from('interest_submissions')
-                    .insert([{ email: 'test@example.com', interest_reason: 'behavioral_analysis' }])
+                    .insert([{ email: testEmail, interest_reason: 'behavioral_analysis' }])
                     .select();
-                log({ interest_insert: { data, error } });
+                log({ interest_insert: { data, error, testEmail } });
             } catch (err) {
                 log({ interest_insert: 'failed', error: err.message });
+            }
+        }
+        
+        async function checkData() {
+            try {
+                const { data, error } = await supabase
+                    .from('interest_submissions')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(10);
+                log({ existing_data: { data, error, count: data?.length } });
+            } catch (err) {
+                log({ check_data: 'failed', error: err.message });
             }
         }
     </script>
