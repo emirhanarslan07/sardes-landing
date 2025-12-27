@@ -30,16 +30,26 @@ export interface InterestSubmission {
   interest_reason: string; // Now required
 }
 
-// Waitlist function
+// Waitlist function - now uses interest_submissions table
 export async function addToWaitlist(data: WaitlistEntry) {
   try {
-    console.log('Adding to waitlist:', data);
+    console.log('Adding to waitlist (interest_submissions):', data);
+    
+    // Map user_type to appropriate interest_reason
+    const userTypeToInterestMap: Record<string, string> = {
+      'student': 'educational_potential',
+      'graduate': 'behavioral_analysis', 
+      'working': 'realistic_scenarios',
+      'other': 'exploring'
+    };
+    
+    const interest_reason = data.user_type ? userTypeToInterestMap[data.user_type] || 'exploring' : 'exploring';
     
     const { data: result, error } = await supabase
-      .from('waitlist')
+      .from('interest_submissions')
       .insert([{
         email: data.email,
-        user_type: data.user_type || null,
+        interest_reason: interest_reason,
       }])
       .select();
 

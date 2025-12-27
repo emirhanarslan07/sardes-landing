@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supabase Debug</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <h1>Supabase Debug</h1>
+    <button onclick="testConnection()">Test Connection</button>
+    <button onclick="listTables()">List Tables</button>
+    <button onclick="testWaitlist()">Test Waitlist Insert</button>
+    <button onclick="testInterest()">Test Interest Insert</button>
+    <div id="output"></div>
+
+    <script>
+        const supabaseUrl = 'https://skktcivoytedvdruwyqs.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNra3RjaXZveXRlZHZkcnV3eXFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1OTE2NDEsImV4cCI6MjA4MjE2NzY0MX0.u6BycbW-23JinYd98P_Ne_z-9iIo-S5HJpmj6szbEs4';
+        
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+        
+        function log(message) {
+            document.getElementById('output').innerHTML += '<p>' + JSON.stringify(message, null, 2) + '</p>';
+        }
+        
+        async function testConnection() {
+            try {
+                const { data, error } = await supabase.from('interest_submissions').select('count');
+                log({ connection: 'success', data, error });
+            } catch (err) {
+                log({ connection: 'failed', error: err.message });
+            }
+        }
+        
+        async function listTables() {
+            try {
+                // Try to query different tables to see which exist
+                const tables = ['waitlist', 'interest_submissions', 'club_applications', 'contact_messages'];
+                for (const table of tables) {
+                    try {
+                        const { data, error } = await supabase.from(table).select('*').limit(1);
+                        log({ table, exists: !error, error: error?.message });
+                    } catch (err) {
+                        log({ table, exists: false, error: err.message });
+                    }
+                }
+            } catch (err) {
+                log({ listTables: 'failed', error: err.message });
+            }
+        }
+        
+        async function testWaitlist() {
+            try {
+                const { data, error } = await supabase
+                    .from('waitlist')
+                    .insert([{ email: 'test@example.com', user_type: 'student' }])
+                    .select();
+                log({ waitlist_insert: { data, error } });
+            } catch (err) {
+                log({ waitlist_insert: 'failed', error: err.message });
+            }
+        }
+        
+        async function testInterest() {
+            try {
+                const { data, error } = await supabase
+                    .from('interest_submissions')
+                    .insert([{ email: 'test@example.com', interest_reason: 'behavioral_analysis' }])
+                    .select();
+                log({ interest_insert: { data, error } });
+            } catch (err) {
+                log({ interest_insert: 'failed', error: err.message });
+            }
+        }
+    </script>
+</body>
+</html>
